@@ -1,0 +1,13 @@
+<h1>Favorite Books</h1>
+
+
+  <% current_user.favorite_books.each do |favbook| %>
+    <div style="display:inline-block">
+      <%= link_to book_path(favbook) do %>
+        <% if favbook.image.present? %>
+          <%= image_tag favbook.image.url(:small) %>
+        <% end %>
+        <div><%= favbook.title %></div>
+      <% end %>
+    </div>
+  <% end %>

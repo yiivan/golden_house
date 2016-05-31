@@ -1,0 +1,45 @@
+<% if @book.image.present? %>
+  <%= image_tag @book.image.url(:large), class: "full-width" %>
+<% end %>
+
+<h1><%= @book.title %></h1>
+<p>ISBN: <%= @book.isbn %></p>
+<p>Author(s): <%= @book.author %></p>
+<p>Publisher: <%= @book.publisher %></p>
+<p>Published Date: <%= @book.published_date %></p>
+<p>Category: <%= @book.category.name %></p>
+<p>Number of Pages: <%= @book.number_of_pages %></p>
+<p>Language: <%= @book.language.name %></p>
+
+<% if user_favorite %>
+  <%= link_to "Un-favorite", my_book_favorite_path(@book, user_favorite), method: :delete %>
+<% else %>
+  <%= link_to "Favorite", my_book_favorites_path(@book), method: :post %>
+<% end %>
+
+(<%= @book.favorites.count %>)
+
+<h2>My Memos:</h2>
+<%= render "/my/memos/form" %>
+
+<div>
+  <% @book.memos.order(:id).each do |mem| %>
+    <div>
+      <%= mem.body %>
+      <p>Created on: <%= mem.created_at %></p>
+      <p>Updated on: <%= mem.updated_at %></p>
+
+      <% mem.extra_memos.each do |extmem| %>
+        <div class="panel panel-default">
+          <div class="panel-heading"><%= extmem.title %></div>
+          <div class="panel-body"><%= extmem.body %></div>
+        </div>
+      <% end  %>
+
+      <% if mem.public %>
+        Likes:(<%= mem.likes.count %>)
+      <% end %>
+    </div>
+
+  <% end %>
+</div>

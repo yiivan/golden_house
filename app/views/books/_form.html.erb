@@ -1,0 +1,14 @@
+<%= @book.errors.full_messages.join(", ") %>
+
+<%= simple_form_for @book do |f| %>
+  <%= f.input :isbn, label: "ISBN" %>
+  <%= f.input :title %>
+  <%= f.input :author %>
+  <%= f.input :publisher %>
+  <%= f.input :published_date %>
+  <%= f.input :number_of_pages %>
+  <%= f.association :category %>
+  <%= f.association :language %>
+  <%= f.input :image %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

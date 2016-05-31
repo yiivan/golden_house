@@ -1,0 +1,50 @@
+<% if @book.image.present? %>
+  <%= image_tag @book.image.url(:large), class: "full-width" %>
+<% end %>
+
+<h1><%= @book.title %></h1>
+<p>ISBN: <%= @book.isbn %></p>
+<p>Author(s): <%= @book.author %></p>
+<p>Publisher: <%= @book.publisher %></p>
+<p>Published Date: <%= @book.published_date %></p>
+<p>Category: <%= @book.category.name %></p>
+<p>Number of Pages: <%= @book.number_of_pages %></p>
+<p>Language: <%= @book.language.name %></p>
+
+<% if user_favorite %>
+  <%= link_to "Un-favorite", book_favorite_path(@book, user_favorite), method: :delete %>
+<% else %>
+  <%= link_to "Favorite", book_favorites_path(@book), method: :post %>
+<% end %>
+
+(<%= @book.favorites.count %>)
+
+<% if can? :update, @book %>
+  <%= link_to "Edit", edit_book_path(@book) %>
+<% end %>
+<% if can? :destroy, @book %>
+  <%= link_to "Delete", book_path(@book),
+                        method: :delete,
+                        data: {confirm: "Are you sure?"} %>
+<% end %>
+<br>
+
+<h3><u>Public Memos</u></h3>
+
+<div>
+  <% @book.memos.order(:id).each do |mem| %>
+    <% if mem.public %>
+      <%= mem.body %>
+      <p>Created on: <%= mem.created_at %></p>
+      <p>Updated on: <%= mem.updated_at %></p>
+
+      <% if user_like(mem) %>
+        <%= link_to "Un-Like", book_memo_like_path(@book, mem, user_like(mem)), method: :delete %>
+      <% else %>
+        <%= link_to "Like", book_memo_likes_path(@book, mem), method: :post %>
+      <% end %>
+
+      (<%= mem.likes.count %>)
+    <% end %>
+  <% end %>
+</div>

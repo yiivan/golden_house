@@ -1,0 +1,18 @@
+<%= simple_form_for [@book, @memo], url: my_book_memos_path(@book) do |f| %>
+  <%= f.input :body %>
+  <%= f.input :public, label: 'Do you want to share this memo with the public?' %>
+
+  <%= f.error :extra_memos %>
+  <div id="extra_memos">
+    <%= f.simple_fields_for :extra_memos do |r| %>
+      <%= render "/my/memos/extra_memo_fields", f: r %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add extra memo', f, :extra_memos, partial: "/my/memos/extra_memo_fields" %>
+    </div>
+  </div>
+  <%= f.submit data: {disable_with: "submitting..."} %>
+<% end %>
+
+<%= @memo.errors.full_messages.join(", ") %>
+<br>

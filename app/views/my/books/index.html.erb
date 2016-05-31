@@ -1,0 +1,12 @@
+<h1>Book Collection</h1>
+
+<% @books.each do |b| %>
+  <div style="display:inline-block">
+    <%= link_to my_book_path(b) do %>
+      <% if b.image.present? %>
+        <%= image_tag b.image.url(:small) %>
+      <% end %>
+      <div><%= b.title %></div>
+    <% end %>
+  </div>
+<% end %>
