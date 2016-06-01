@@ -1,13 +1,14 @@
 <h1>My Favorite Books</h1>
 
-
-  <% current_user.favorite_books.each do |favbook| %>
-    <div style="display:inline-block">
-      <%= link_to book_path(favbook) do %>
-        <% if favbook.image.present? %>
-          <%= image_tag favbook.image.url(:small) %>
-        <% end %>
-        <div><%= favbook.title %></div>
+<% counter = 0 %>
+<% current_user.favorite_books.each do |favbook| %>
+  <div id="book-<%= counter %>" class="books" style="display:none">
+    <%= link_to book_path(favbook) do %>
+      <% if favbook.image.present? %>
+        <%= image_tag favbook.image.url(:small) %>
       <% end %>
-    </div>
-  <% end %>
+      <div><%= favbook.title %></div>
+    <% end %>
+  </div>
+  <% counter += 1 %>
+<% end %>
