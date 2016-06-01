@@ -22,5 +22,7 @@
   <div></div>
 <% end %>
 
+<div><%= (paginate @books) if !(@books == "blank" || @books == nil) %></div>
+
 <br>
-<%= link_to "Create a Book", new_book_path %>
+<div><%= link_to "Create a Book", new_book_path %><div>

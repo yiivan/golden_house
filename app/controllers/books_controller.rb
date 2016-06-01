@@ -25,7 +25,7 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all
+    @books = Book.order(:title).page params[:page]
     respond_to do |format|
       format.html { render }
     end

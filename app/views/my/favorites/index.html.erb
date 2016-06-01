@@ -1,7 +1,7 @@
 <h1>My Favorite Books</h1>
 
 <% counter = 0 %>
-<% current_user.favorite_books.each do |favbook| %>
+<% @books.each do |favbook| %>
   <div id="book-<%= counter %>" class="books" style="display:none">
     <%= link_to book_path(favbook) do %>
       <% if favbook.image.present? %>
@@ -12,3 +12,5 @@
   </div>
   <% counter += 1 %>
 <% end %>
+
+<div><%= paginate @books %></div>

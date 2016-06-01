@@ -13,6 +13,7 @@ class My::FavoritesController < ApplicationController
   end
 
   def index
+    @books = current_user.favorite_books.order(:title).page params[:page]
   end
 
   def destroy

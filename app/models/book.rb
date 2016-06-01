@@ -14,6 +14,8 @@ class Book < ActiveRecord::Base
   validates :category, presence: true
   validates :language, presence: true
 
+  paginates_per 32
+
   mount_uploader :image, ImageUploader
 
   def favorite_for(user)

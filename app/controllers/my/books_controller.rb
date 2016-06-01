@@ -4,7 +4,7 @@ class My::BooksController < ApplicationController
 
   def new
     if params[:search] && (params[:search] != "")
-      @books = Book.search(params[:search]).order(:title)
+      @books = Book.search(params[:search]).order(:title).page params[:page]
     else
       @books = "blank"
     end
@@ -18,7 +18,7 @@ class My::BooksController < ApplicationController
   end
 
   def index
-    @books = current_user.books.all.uniq
+    @books = current_user.books.order(:title).uniq.page params[:page]
     respond_to do |format|
       format.html { render }
     end
