@@ -5,7 +5,7 @@
   <%= submit_tag "Search" %>
 <% end %>
 
-<% if @books.present? %>
+<% if @books.present? && @books != "blank" %>
   <% @books.each do |b| %>
     <div style="display:inline-block">
       <%= link_to my_book_path(b) do %>
@@ -16,8 +16,10 @@
       <% end %>
     </div>
   <% end %>
+<% elsif !@books.present? %>
+  <div>There are no books containing the term "<%= params[:search] %>". Please create the book with the create button below.</div>
 <% else %>
-  <p>There are no books containing the term "<%= params[:search] %>". Please create the book with the create button below.</p>
+  <div></div>
 <% end %>
 
 <br>

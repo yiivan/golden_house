@@ -3,10 +3,10 @@ class My::BooksController < ApplicationController
   before_action :find_book, only: [:show, :edit, :update, :destroy]
 
   def new
-    if params[:search]
+    if params[:search] && (params[:search] != "")
       @books = Book.search(params[:search]).order(:title)
     else
-      @books = Book.all.order(:title)
+      @books = "blank"
     end
   end
 
