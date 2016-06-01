@@ -19,4 +19,8 @@ class Book < ActiveRecord::Base
   def favorite_for(user)
     favorites.find_by_user_id user
   end
+
+  def self.search(search)
+    where( "title ILIKE ?", "%#{search}%" )
+  end
 end

@@ -1,10 +1,23 @@
 <h1>Select a Book</h1>
-
-<%= @book.errors.full_messages.join(", ") %>
-
-<%= simple_form_for @book do |f| %>
-  <%= f.input :title %>
-  <%= f.submit class: "btn btn-primary" %>
+<%= form_tag new_my_book_path, method: :get, id: "search-form" do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Books..." %
+  <%= submit_tag "Search" %>
 <% end %>
 
+<% if @books.present? %>
+  <% @books.each do |b| %>
+    <div style="display:inline-block">
+      <%= link_to my_book_path(b) do %>
+        <% if b.image.present? %>
+          <%= image_tag b.image.url(:small) %>
+        <% end %>
+        <div><%= b.title %></div>
+      <% end %>
+    </div>
+  <% end %>
+<% else %>
+  <p>There are no books containing the term "<%= params[:search] %>". Please cr
+<% end %>
+
+<br>
 <%= link_to "Create a Book", new_book_path %>

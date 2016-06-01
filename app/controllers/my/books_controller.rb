@@ -3,19 +3,12 @@ class My::BooksController < ApplicationController
   before_action :find_book, only: [:show, :edit, :update, :destroy]
 
   def new
-    @book = Book.new
+    if params[:search]
+      @books = Book.search(params[:search]).order(:title)
+    else
+      @books = Book.all.order(:title)
+    end
   end
-
-  # def create
-  #   @book = Book.new book_params
-  #   @book.users = current_user
-  #   if @book.save
-  #     redirect_to my_book_path(@book), notice: "Book created!"
-  #   else
-  #     flash.now[:alert] = "Book not created!"
-  #     render :new
-  #   end
-  # end
 
   def show
     @memo = current_user.memos.new
