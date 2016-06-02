@@ -11,7 +11,7 @@ class My::MemosController < ApplicationController
       if @memo.save
         format.html { redirect_to my_book_path(@book), notice: "Thanks for writing a memo!" }
       else
-        flash[:alert] = "not saved"
+        flash.now[:alert] = "not saved"
         format.html { render "/my/books/show" }
       end
     end

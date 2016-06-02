@@ -29,7 +29,14 @@
     </div>
     <hr>
 
-    <div><%= notice || alert %></div>
+    <% if notice %>
+      <div class="alert alert-success" ><%= notice %></div>
+    <% elsif alert %>
+      <div class="alert alert-danger" ><%= alert %></div>
+    <% else %>
+      <div></div>
+    <% end %>
+    <div class="ajax-flash-display" ></div>
 
     <%= yield %>
   </div>
