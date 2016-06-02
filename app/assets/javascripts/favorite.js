@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   $(".favorite-container").on("click", ".favorite", function(){
-    $(".ajax-flash-display").removeClass(".alert alert-danger").text("");
+    $(".ajax-flash-display").removeClass("alert alert-danger").text("");
     $.ajax({
       method: "POST",
       url: "/books/" + $(this).attr("data-book-id") + "/favorites"
@@ -12,12 +12,12 @@ $(document).ready(function() {
       $(".favorites-count").text("(" + $(this).attr("data-favorite-count") + ")");
     }.bind(this))
     .fail(function(){
-      $(".ajax-flash-display").addClass(".alert alert-danger").text("You've already made this into your favorite!");
+      $(".ajax-flash-display").addClass("alert alert-danger").text("You've already made this into your favorite!");
     });
   });
 
   $(".favorite-container").on("click", ".unfavorite", function(){
-    $(".ajax-flash-display").removeClass(".alert alert-danger").text("");
+    $(".ajax-flash-display").removeClass("alert alert-danger").text("");
     $.ajax({
       method: "DELETE",
       url: "/books/" + $(this).attr("data-book-id") + "/favorites/" + $(this).attr("data-favorite-id")
@@ -28,7 +28,7 @@ $(document).ready(function() {
       $(".favorites-count").text("(" + $(this).attr("data-favorite-count") + ")");
     }.bind(this))
     .fail(function(){
-      $(".ajax-flash-display").addClass(".alert alert-danger").text("You've already un-favorited this book!");
+      $(".ajax-flash-display").addClass("alert alert-danger").text("You've already un-favorited this book!");
     });
   });
 
