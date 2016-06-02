@@ -1,6 +1,11 @@
-<div>Public Memos |
-  <%= link_to (@book.memos.find_by_user_id(current_user.id) ? "My Memos" : "Create Memos"),
-               my_book_path(@book) %>
+<div>Public Memos
+  <% if user_signed_in? && (@book.memos.find_by_user_id(current_user.id)) %>
+    | <%= link_to "My Memos", my_book_path(@book) %>
+  <% elsif user_signed_in? && !(@book.memos.find_by_user_id(current_user.id)) %>
+    | <%= link_to "Create Memos", my_book_path(@book) %>
+  <% else %>
+    <div></div>
+  <% end %>
 </div>
 
 <% if @book.image.present? %>

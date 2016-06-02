@@ -7,7 +7,7 @@
       <% if favbook.image.present? %>
         <%= image_tag favbook.image.url(:small) %>
       <% end %>
-      <div><%= favbook.title %></div>
+      <div class="book-name"><%= favbook.title_snippet %></div>
     <% end %>
   </div>
   <% counter += 1 %>

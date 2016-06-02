@@ -25,4 +25,8 @@ class Book < ActiveRecord::Base
   def self.search(search)
     where( "title ILIKE ?", "%#{search}%" )
   end
+
+  def title_snippet
+    title.length > 40 ? title[0...40] + "..." : title
+  end
 end
