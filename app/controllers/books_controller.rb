@@ -19,16 +19,10 @@ class BooksController < ApplicationController
 
   def show
     @memo = Memo.new
-    respond_to do |format|
-      format.html { render }
-    end
   end
 
   def index
     @books = Book.order(:title).page params[:page]
-    respond_to do |format|
-      format.html { render }
-    end
   end
 
   def edit

@@ -39,8 +39,8 @@
   <% @book.memos.order(:id).each do |mem| %>
     <div>
       <%= mem.body %>
-      <p>Created on: <%= mem.created_at %></p>
-      <p>Updated on: <%= mem.updated_at %></p>
+      <p>Created on: <%= mem.created_at.strftime("%B %d, %Y") %></p>
+      <p>Updated on: <%= mem.updated_at.strftime("%B %d, %Y") %></p>
 
       <% mem.extra_memos.each do |extmem| %>
         <div class="panel panel-default">

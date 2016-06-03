@@ -54,8 +54,8 @@
   <% @book.memos.order(:id).each do |mem| %>
     <% if mem.public %>
       <%= mem.body %>
-      <p>Created on: <%= mem.created_at %></p>
-      <p>Updated on: <%= mem.updated_at %></p>
+      <p>Created on: <%= mem.created_at.strftime("%B %d, %Y") %></p>
+      <p>Updated on: <%= mem.updated_at.strftime("%B %d, %Y") %></p>
 
       <% if user_signed_in? %>
         <% message = user_like(mem) ? "Unlike" : "Like" %>

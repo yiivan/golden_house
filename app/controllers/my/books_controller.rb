@@ -12,16 +12,10 @@ class My::BooksController < ApplicationController
 
   def show
     @memo = current_user.memos.new
-    respond_to do |format|
-      format.html { render }
-    end
   end
 
   def index
     @books = current_user.books.order(:title).uniq.page params[:page]
-    respond_to do |format|
-      format.html { render }
-    end
   end
 
   private
