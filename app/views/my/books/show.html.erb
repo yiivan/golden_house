@@ -16,12 +16,13 @@
 <p>Language: <%= @book.language.name %></p>
 
 <% if user_signed_in? %>
+  <% message = user_favorite ? "Unfavorite" : "Favorite" %>
   <% class_name = user_favorite ? "unfavorite" : "favorite" %>
-  <% message = user_favorite ? "Un-favorite" : "Favorite" %>
   <% favorite_id = user_favorite ? (@book.favorites.find_by_user_id current_user).id : "" %>
   <div class="favorite-container">
     <%= link_to message, "javascript:void(0);", class: class_name,
-                                                data: {"book-id": @book.id, "favorite-id": favorite_id,
+                                                data: {"book-id": @book.id,
+                                                       "favorite-id": favorite_id,
                                                        "favorite-count": @book.favorites.count} %>
   </div>
 <% else %>

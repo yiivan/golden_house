@@ -5,8 +5,11 @@ class FavoritesController < ApplicationController
     favorite = Favorite.new
     favorite.user = current_user
     favorite.book = book
-    favorite.save
-    render json: {id: favorite.id}
+    if favorite.save
+      render json: {id: favorite.id}
+    else
+      head :internal_server_error
+    end
   end
 
   def destroy

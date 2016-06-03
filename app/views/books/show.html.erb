@@ -22,12 +22,13 @@
 <p>Language: <%= @book.language.name %></p>
 
 <% if user_signed_in? %>
+  <% message = user_favorite ? "Unfavorite" : "Favorite" %>
   <% class_name = user_favorite ? "unfavorite" : "favorite" %>
-  <% message = user_favorite ? "Un-favorite" : "Favorite" %>
   <% favorite_id = user_favorite ? (@book.favorites.find_by_user_id current_user).id : "" %>
   <div class="favorite-container">
     <%= link_to message, "javascript:void(0);", class: class_name,
-                                                data: {"book-id": @book.id, "favorite-id": favorite_id,
+                                                data: {"book-id": @book.id,
+                                                       "favorite-id": favorite_id,
                                                        "favorite-count": @book.favorites.count} %>
   </div>
 <% else %>
@@ -56,13 +57,24 @@
       <p>Created on: <%= mem.created_at %></p>
       <p>Updated on: <%= mem.updated_at %></p>
 
-      <% if user_like(mem) %>
-        <%= link_to "Un-Like", book_memo_like_path(@book, mem, user_like(mem)), method: :delete %>
+      <% if user_signed_in? %>
+        <% message = user_like(mem) ? "Unlike" : "Like" %>
+        <% class_name = user_like(mem) ? "unlike" : "like" %>
+        <% like_id = user_like(mem) ? (mem.likes.find_by_user_id current_user).id : "" %>
+        <div class="like-container">
+          <%= link_to message, "javascript:void(0);", class: class_name,
+                                                      data: {"book-id": @book.id,
+                                                             "memo-id": mem.id,
+                                                             "like-id": like_id,
+                                                             "like-count": mem.likes.count} %>
+        </div>
       <% else %>
-        <%= link_to "Like", book_memo_likes_path(@book, mem), method: :post %>
+        <%= link_to "Like", new_session_path %>
       <% end %>
+      <div id="likes-count-<%= mem.id %>">
+        (<%= mem.likes.count %>)
+      </div>
 
-      (<%= mem.likes.count %>)
     <% end %>
   <% end %>
 </div>
