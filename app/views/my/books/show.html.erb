@@ -44,18 +44,17 @@
           Updated on: <%= mem.updated_at.strftime("%B %d, %Y") %>
         </p>
         <%= mem.body %>
-      </div>
 
-      <% mem.segments.each do |segm| %>
-        <div class="panel panel-default">
-          <div class="panel-heading"><%= segm.title %></div>
-          <div class="panel-body"><%= segm.body %></div>
+        <% mem.segments.each do |segm| %>
+          <h3><strong><%= segm.title %></strong></h3>
+          <p><%= segm.body %></p>
+        <% end  %>
+        <div>
+          <% if mem.public %>
+            Likes:(<%= mem.likes.count %>)
+          <% end %>
         </div>
-      <% end  %>
-
-      <% if mem.public %>
-        Likes:(<%= mem.likes.count %>)
-      <% end %>
+      </div>
     </div>
 
   <% end %>

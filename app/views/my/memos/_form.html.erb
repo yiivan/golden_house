@@ -12,7 +12,7 @@
         <%= render "/my/memos/segment_fields", f: r %>
       <% end %>
       <div class="links">
-        <%= link_to_add_association 'add extra memo', f, :segments, partial: "/my/memos/segment_fields", class: "btn btn-success btn-sm" %>
+        <%= link_to_add_association 'add new segment', f, :segments, partial: "/my/memos/segment_fields", class: "btn btn-success btn-sm" %>
       </div>
     </div>
     <%= f.submit data: {disable_with: "submitting..."}, class: "btn btn-primary" %>

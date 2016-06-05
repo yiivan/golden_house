@@ -39,16 +39,6 @@ ActiveRecord::Schema.define(version: 20160605164631) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "extra_memos", force: :cascade do |t|
-    t.string   "title"
-    t.text     "body"
-    t.integer  "memo_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "extra_memos", ["memo_id"], name: "index_extra_memos_on_memo_id", using: :btree
-
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "book_id"
@@ -110,7 +100,6 @@ ActiveRecord::Schema.define(version: 20160605164631) do
 
   add_foreign_key "books", "categories"
   add_foreign_key "books", "languages"
-  add_foreign_key "extra_memos", "memos"
   add_foreign_key "favorites", "books"
   add_foreign_key "favorites", "users"
   add_foreign_key "likes", "memos"
