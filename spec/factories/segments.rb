@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :extra_memo do
+  factory :segment do
     title "MyString"
     body "MyText"
     memo nil

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160529171652) do
+ActiveRecord::Schema.define(version: 20160605164631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,16 @@ ActiveRecord::Schema.define(version: 20160529171652) do
   add_index "memos", ["book_id"], name: "index_memos_on_book_id", using: :btree
   add_index "memos", ["user_id"], name: "index_memos_on_user_id", using: :btree
 
+  create_table "segments", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "memo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "segments", ["memo_id"], name: "index_segments_on_memo_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "first_name"
@@ -107,4 +117,5 @@ ActiveRecord::Schema.define(version: 20160529171652) do
   add_foreign_key "likes", "users"
   add_foreign_key "memos", "books"
   add_foreign_key "memos", "users"
+  add_foreign_key "segments", "memos"
 end

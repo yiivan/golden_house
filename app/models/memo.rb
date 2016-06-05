@@ -2,8 +2,8 @@ class Memo < ActiveRecord::Base
   belongs_to :user
   belongs_to :book
 
-  has_many :extra_memos, dependent: :destroy
-  accepts_nested_attributes_for :extra_memos,
+  has_many :segments, dependent: :destroy
+  accepts_nested_attributes_for :segments,
                                 reject_if:     :all_blank,
                                 allow_destroy: true
 

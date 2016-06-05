@@ -46,10 +46,10 @@
         <%= mem.body %>
       </div>
 
-      <% mem.extra_memos.each do |extmem| %>
+      <% mem.segments.each do |segm| %>
         <div class="panel panel-default">
-          <div class="panel-heading"><%= extmem.title %></div>
-          <div class="panel-body"><%= extmem.body %></div>
+          <div class="panel-heading"><%= segm.title %></div>
+          <div class="panel-body"><%= segm.body %></div>
         </div>
       <% end  %>
 

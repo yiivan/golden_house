@@ -41,7 +41,7 @@ class My::MemosController < ApplicationController
   private
 
   def memo_params
-    params.require(:memo).permit(:body, :public, extra_memos_attributes: [:title, :body, :id, :_destroy])
+    params.require(:memo).permit(:body, :public, segments_attributes: [:title, :body, :id, :_destroy])
   end
 
   def find_book
