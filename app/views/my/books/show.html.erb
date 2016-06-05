@@ -34,7 +34,7 @@
 
 <h2>My Memos:</h2>
 
-<div>
+<div class="memo-index">
   <% @book.memos.order(:id).each do |mem| %>
     <div>
       <div class="well well-lg">
@@ -62,8 +62,12 @@
 
 <%= render "/my/memos/form" %>
 
-<!-- <div class="memos-container"> -->
-  <%# @book.memos.order(:id).each do |mem| %>
+<div class="new-memo-button">
+  <% button_name = @book.memos.find_by_user_id(current_user.id) ? "New Memo" : "Hide New Memo"  %>
+  <% button_class = @book.memos.find_by_user_id(current_user.id) ? "show-new-memo-button" : "hide-new-memo-button"  %>
 
-  <%# end %>
-<!-- </div> -->
+  <%= button_tag button_name, "class": "#{button_class} btn btn-primary",
+                              "type": "button",
+                              "data-toggle": "collapse",
+                              "data-target": ".memo-form" %>
+</div>

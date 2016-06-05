@@ -22,13 +22,3 @@
   <br>
 
 </div>
-
-<div class="new-memo-button">
-  <% button_name = @book.memos.find_by_user_id(current_user.id) ? "New Memo" : "Hide New Memo"  %>
-  <% button_class = @book.memos.find_by_user_id(current_user.id) ? "show-new-memo-button" : "hide-new-memo-button"  %>
-
-  <%= button_tag button_name, "class": "#{button_class} btn btn-primary",
-                              "type": "button",
-                              "data-toggle": "collapse",
-                              "data-target": ".memo-form" %>
-</div>
