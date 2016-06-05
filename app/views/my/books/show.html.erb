@@ -33,34 +33,16 @@
 </div>
 
 <h2>My Memos:</h2>
-
 <div class="memo-index">
   <% @book.memos.order(:id).each do |mem| %>
-    <div>
-      <div class="well well-lg">
-        <p style="color:grey">
-          Created on: <%= mem.created_at.strftime("%B %d, %Y") %>
-          &nbsp;&nbsp;
-          Updated on: <%= mem.updated_at.strftime("%B %d, %Y") %>
-        </p>
-        <%= mem.body %>
-
-        <% mem.segments.each do |segm| %>
-          <h3><strong><%= segm.title %></strong></h3>
-          <p><%= segm.body %></p>
-        <% end  %>
-        <div>
-          <% if mem.public %>
-            Likes:(<%= mem.likes.count %>)
-          <% end %>
-        </div>
-      </div>
-    </div>
-
+    <%= render "/my/memos/memo", memo: mem %>
   <% end %>
 </div>
 
-<%= render "/my/memos/form" %>
+<% form_class = @book.memos.find_by_user_id(current_user.id) ? "" : "in"  %>
+<div class="memo-form collapse <%= form_class %>">
+  <%= render "/my/memos/form", memo: @memo %>
+</div>
 
 <div class="new-memo-button">
   <% button_name = @book.memos.find_by_user_id(current_user.id) ? "New Memo" : "Hide New Memo"  %>

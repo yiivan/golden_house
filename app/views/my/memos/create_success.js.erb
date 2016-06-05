@@ -1,0 +1,3 @@
+$(".memo-index").append("<%= j render '/my/memos/memo', memo: @memo %>");
+$(".memo-form").html("<%= j render '/my/memos/form', memo: Memo.new %>");
+$(".hide-new-memo-button").click();

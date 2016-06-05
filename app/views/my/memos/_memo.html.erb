@@ -1,0 +1,18 @@
+<div id="<%= dom_id(memo) %>" class="well well-lg">
+  <p style="color:grey">
+    Created on: <%= memo.created_at.strftime("%B %d, %Y") %>
+    &nbsp;&nbsp;
+    Updated on: <%= memo.updated_at.strftime("%B %d, %Y") %>
+  </p>
+  <%= memo.body %>
+
+  <% memo.segments.each do |segm| %>
+    <h3><strong><%= segm.title %></strong></h3>
+    <p><%= segm.body %></p>
+  <% end  %>
+  <div>
+    <% if memo.public %>
+      Likes:(<%= memo.likes.count %>)
+    <% end %>
+  </div>
+</div>

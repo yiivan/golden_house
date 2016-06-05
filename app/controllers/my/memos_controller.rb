@@ -10,9 +10,11 @@ class My::MemosController < ApplicationController
     respond_to do |format|
       if @memo.save
         format.html { redirect_to my_book_path(@book), notice: "Thanks for writing a memo!" }
+        format.js { render :create_success }
       else
         flash.now[:alert] = "not saved"
         format.html { render "/my/books/show" }
+        format.js { render :create_failure }
       end
     end
   end
