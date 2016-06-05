@@ -33,14 +33,18 @@
 </div>
 
 <h2>My Memos:</h2>
-<%= render "/my/memos/form" %>
 
 <div>
   <% @book.memos.order(:id).each do |mem| %>
     <div>
-      <%= mem.body %>
-      <p>Created on: <%= mem.created_at.strftime("%B %d, %Y") %></p>
-      <p>Updated on: <%= mem.updated_at.strftime("%B %d, %Y") %></p>
+      <div class="well well-lg">
+        <p style="color:grey">
+          Created on: <%= mem.created_at.strftime("%B %d, %Y") %>
+          &nbsp;&nbsp;
+          Updated on: <%= mem.updated_at.strftime("%B %d, %Y") %>
+        </p>
+        <%= mem.body %>
+      </div>
 
       <% mem.extra_memos.each do |extmem| %>
         <div class="panel panel-default">
@@ -56,3 +60,11 @@
 
   <% end %>
 </div>
+
+<%= render "/my/memos/form" %>
+
+<!-- <div class="memos-container"> -->
+  <%# @book.memos.order(:id).each do |mem| %>
+
+  <%# end %>
+<!-- </div> -->
