@@ -8,28 +8,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <div class="container">
-    <div>
-      <%= link_to "Home", root_path %>
-      |
-      <%= link_to "Create Memos", new_my_book_path %>
-    </div>
-    <div style="text-align:right">
-      <% if user_signed_in? %>
-        <%= link_to "My Memos", my_books_path %>
-        |
-        <%= link_to "My Favorite Books", my_favorites_path %>
-        |
-        Hello <%= current_user.first_name %>,
-        <%= link_to "Sign Out", sessions_path, method: :delete %>
-      <% else %>
-        <%= link_to "Sign In", new_session_path %>
-        |
-        <%= link_to "Register", new_user_path %>
-      <% end %>
-    </div>
-    <hr>
 
+  <nav class="navbar">
+    <div class="container-fluid">
+      <div>
+        <a href="<%= root_path %>" id="logo" class="navbar-left" ><%= image_tag "golden_house.png" %></a>
+      </div>
+      <div class="navbar-right">
+        <% if user_signed_in? %>
+          <div class="dropdown">
+            <button id="top-right-dropdown-button" class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+              <%= current_user.first_name %>
+            </button>
+            <ul id="top-right-dropdown-menu" class="dropdown-menu">
+              <li><%= link_to "Create Memos", new_my_book_path %></li>
+              <li><%= link_to "My Memos", my_books_path %></li>
+              <li><%= link_to "My Favorite Books", my_favorites_path %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Sign Out", sessions_path, method: :delete %></li>
+            </ul>
+          </div>
+        <% else %>
+          <div id="top-right-non-signed-in">
+            <%= link_to "Sign In", new_session_path %>
+            |
+            <%= link_to "Register", new_user_path %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
     <% if notice %>
       <div class="alert alert-success" ><%= notice %></div>
     <% elsif alert %>
