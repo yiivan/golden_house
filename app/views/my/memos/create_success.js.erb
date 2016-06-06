@@ -1,3 +1,5 @@
-$(".memo-index").append("<%= j render '/my/memos/memo', memo: @memo %>");
+$(".memo-index").append("<div id='show-<%= dom_id(@memo) %>'></div>",
+                        "<div id='edit-<%= dom_id(@memo) %>'></div>");
+$("#show-<%= dom_id(@memo) %>").append("<%= j render '/my/memos/memo', memo: @memo %>");
 $(".memo-form").html("<%= j render '/my/memos/form', memo: Memo.new %>");
 $(".hide-new-memo-button").click();

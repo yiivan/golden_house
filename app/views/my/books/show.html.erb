@@ -36,9 +36,7 @@
 <div class="memo-index">
   <% @book.memos.order(:id).each do |mem| %>
     <div id="show-<%= dom_id(mem) %>">
-      <div id="<%= dom_id(mem) %>" class="well well-lg">
-        <%= render "/my/memos/memo", memo: mem %>
-      </div>
+      <%= render "/my/memos/memo", memo: mem %>
     </div>
     <div id="edit-<%= dom_id(mem) %>" ></div>
   <% end %>
