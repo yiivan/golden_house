@@ -1,16 +1,20 @@
 <h1>My Favorite Books</h1>
 
-<% counter = 0 %>
-<% @books.each do |favbook| %>
-  <div id="book-<%= counter %>" class="books" style="display:none">
-    <%= link_to book_path(favbook) do %>
-      <% if favbook.image.present? %>
-        <%= image_tag favbook.image.url(:small) %>
+<div class="books-row">
+  <% counter = 0 %>
+  <% @books.each do |favbook| %>
+    <div id="book-<%= counter %>" class="book col-xs-6 col-sm-3 col-md-2 col-lg-1p5">
+      <%= link_to book_path(favbook) do %>
+        <div class="book-image">
+          <% if favbook.image.present? %>
+            <%= image_tag favbook.image.url(:small) %>
+          <% end %>
+        </div>
+        <div class="book-title"><%= favbook.title_snippet %></div>
       <% end %>
-      <div class="book-name"><%= favbook.title_snippet %></div>
-    <% end %>
-  </div>
-  <% counter += 1 %>
-<% end %>
+    </div>
+    <% counter += 1 %>
+  <% end %>
+</div>
 
 <div><%= paginate @books %></div>

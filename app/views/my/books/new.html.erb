@@ -5,22 +5,26 @@
   <%= submit_tag "Search" %>
 <% end %>
 
-<% if @books.present? && @books != "blank" %>
-  <% @books.each do |b| %>
-    <div style="display:inline-block">
-      <%= link_to my_book_path(b) do %>
-        <% if b.image.present? %>
-          <%= image_tag b.image.url(:small) %>
+<div class="books-row">
+  <% if @books.present? && @books != "blank" %>
+    <% @books.each do |b| %>
+      <div class="searched-book col-xs-6 col-sm-3 col-md-2 col-lg-1p5">
+        <%= link_to my_book_path(b) do %>
+          <div class="book-image">
+            <% if b.image.present? %>
+              <%= image_tag b.image.url(:small) %>
+            <% end %>
+          </div>
+          <div class="book-title"><%= b.title_snippet %></div>
         <% end %>
-        <div class="book-name"><%= b.title_snippet %></div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
+  <% elsif !@books.present? %>
+    <div>There are no books containing the term "<%= params[:search] %>". Please create the book with the create button below.</div>
+  <% else %>
+    <div></div>
   <% end %>
-<% elsif !@books.present? %>
-  <div>There are no books containing the term "<%= params[:search] %>". Please create the book with the create button below.</div>
-<% else %>
-  <div></div>
-<% end %>
+</div>
 
 <div><%= (paginate @books) if !(@books == "blank" || @books == nil) %></div>
 

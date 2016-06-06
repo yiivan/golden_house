@@ -14,7 +14,7 @@ class Book < ActiveRecord::Base
   validates :category, presence: true
   validates :language, presence: true
 
-  paginates_per 32
+  paginates_per 24
 
   mount_uploader :image, ImageUploader
 
