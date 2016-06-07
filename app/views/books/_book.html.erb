@@ -1,7 +1,7 @@
 <div class="table-responsive">
   <table class="table">
-    <tr class="table-row-1">
-      <td class="table-column-1" rowspan="2">
+    <tr>
+      <td class="table-column-1">
         <div class="show-book-image">
           <% if @book.image.present? %>
             <%= image_tag @book.image.url(:large) %>
@@ -11,34 +11,33 @@
           <% message = user_favorite ? "Unfavorite" : "Favorite" %>
           <% class_name = user_favorite ? "unfavorite" : "favorite" %>
           <% favorite_id = user_favorite ? (@book.favorites.find_by_user_id current_user).id : "" %>
-          <div class="favorite-container">
+          <span class="favorite-container">
             <%= link_to message, "javascript:void(0);", class: class_name,
                                                         data: {"book-id": @book.id,
                                                                "favorite-id": favorite_id,
                                                                "favorite-count": @book.favorites.count} %>
-          </div>
+          </span>
         <% else %>
           <%= link_to "Favorite", new_session_path %>
         <% end %>
-        <div class="favorites-count">
+        <span class="favorites-count">
           (<%= @book.favorites.count %>)
-        </div>
+        </span>
 
-        <% if can? :update, @book %>
-          <%= link_to "Edit", edit_book_path(@book) %>
-        <% end %>
-        <% if can? :destroy, @book %>
-          <%= link_to "Delete", book_path(@book),
-                                method: :delete,
-                                data: {confirm: "Are you sure?"} %>
-        <% end %>
+        <div>
+          <% if can? :update, @book %>
+            <%= link_to "Edit", edit_book_path(@book) %>
+          <% end %>
+          |
+          <% if can? :destroy, @book %>
+            <%= link_to "Delete", book_path(@book),
+                                  method: :delete,
+                                  data: {confirm: "Are you sure?"} %>
+          <% end %>
+        </div>
       </td>
       <td>
         <h1 class="show-book-title"><strong><%= @book.title %></strong></h1>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <dl class="dl-horizontal">
           <dt>ISBN</dt>
           <dd><%= @book.isbn %></dd>

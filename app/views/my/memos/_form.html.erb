@@ -1,5 +1,5 @@
 <%= simple_form_for [:my, @book, memo], remote: true do |f| %>
-  <%= f.input :body %>
+  <%= f.input :body, label: false, input_html: {rows: 20} %>
   <%= f.input :public, label: 'Do you want to share this memo with the public?' %>
 
   <%= f.error :segments %>
