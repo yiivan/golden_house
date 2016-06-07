@@ -2,7 +2,7 @@
   <%= image_tag "golden_house_large.png" %>
 </div>
 
-<%= form_tag books_path, method: :get, id: "search-form" do %>
-  <div id="home-search-field" ><%= text_field_tag :search, params[:search] %></div>
-  <div id="home-search-button" ><%= submit_tag "Search" %></div>
+<%= form_tag books_path, method: :get, id: "home-search" do %>
+  <div><%= text_field_tag :search, params[:search] %></div>
+  <div><%= submit_tag "Search" %></div>
 <% end %>

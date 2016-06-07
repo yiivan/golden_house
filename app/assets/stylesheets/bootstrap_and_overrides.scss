@@ -5,38 +5,38 @@
 .col-sm-1p5,
 .col-md-1p5,
 .col-lg-1p5 {
-    position: relative;
-    min-height: 1px;
-    padding-right: 10px;
-    padding-left: 10px;
+  position: relative;
+  min-height: 1px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .col-xs-1p5 {
-    width: 12.5%;
-    float: left;
+  width: 12.5%;
+  float: left;
 }
 @media (min-width: 768px) {
-    .col-sm-1p5 {
-        width: 12.5%;
-        float: left;
-    }
-    .dl-horizontal dt {
-        text-align: left;
-    }
+  .col-sm-1p5 {
+    width: 12.5%;
+    float: left;
+  }
+  .dl-horizontal dt {
+    text-align: left;
+  }
 }
 @media (min-width: 992px) {
-    .col-md-1p5 {
-        width: 12.5%;
-        float: left;
-    }
+  .col-md-1p5 {
+    width: 12.5%;
+    float: left;
+  }
 }
 @media (min-width: 1200px) {
-    .col-lg-1p5 {
-        width: 12.5%;
-        float: left;
-    }
+  .col-lg-1p5 {
+    width: 12.5%;
+    float: left;
+  }
 }
 
 .table th, .table td {
-    border-top: none !important;
+  border-top: none !important;
 }
