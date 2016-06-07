@@ -6,7 +6,7 @@
 
 <h2>My Memos:</h2>
 <div class="memo-index">
-  <% @book.memos.order(:id).each do |mem| %>
+  <% @book.memos.where(user_id: current_user).order(:id).each do |mem| %>
     <div id="show-<%= dom_id(mem) %>">
       <%= render "/my/memos/memo", memo: mem %>
     </div>

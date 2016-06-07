@@ -3,42 +3,45 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .book {
-  display: none;
+    display: none;
 }
 
 .searched-book {
-  display: inline-block;
+    display: inline-block;
 }
 
 .book-image {
-  width: 110px;
-  height: 165px;
-  margin: 0 auto;
+    width: 110px;
+    height: 165px;
+    margin: 0 auto;
 }
 
 .book-title {
-  width: 110px;
-  height: 60px;
-  margin: 0 auto;
-  overflow: hidden;
+    width: 110px;
+    height: 60px;
+    margin: 0 auto;
+    overflow: hidden;
 }
 
 .table-column-1 {
-  width: 220px;
+    width: 220px;
 }
 
 .show-book-image {
-  border: 1px solid black;
+    width: 182px;
+    height: 262px;
+    border: 1px solid black;
 }
 
 .table-row-1 {
-  height: 55px;
+    height: 55px;
 }
 
 .show-book-title {
-  margin: auto;
+    margin: auto;
 }
 
 dl {
-  font-size: 16px;
+    font-size: 16px;
+    text-align: left;
 }

@@ -2,10 +2,11 @@
   <table class="table">
     <tr class="table-row-1">
       <td class="table-column-1" rowspan="2">
-        <% if @book.image.present? %>
-          <%= image_tag @book.image.url(:large), class: "show-book-image" %>
-        <% end %>
-
+        <div class="show-book-image">
+          <% if @book.image.present? %>
+            <%= image_tag @book.image.url(:large) %>
+          <% end %>
+        </div>
         <% if user_signed_in? %>
           <% message = user_favorite ? "Unfavorite" : "Favorite" %>
           <% class_name = user_favorite ? "unfavorite" : "favorite" %>
@@ -33,25 +34,25 @@
         <% end %>
       </td>
       <td>
-        <h1 class="show-book-title"><%= @book.title %></h1>
+        <h1 class="show-book-title"><strong><%= @book.title %></strong></h1>
       </td>
     </tr>
     <tr>
       <td>
         <dl class="dl-horizontal">
-          <dt>ISBN:</dt>
+          <dt>ISBN</dt>
           <dd><%= @book.isbn %></dd>
-          <dt>Author(s):</dt>
+          <dt>Author(s)</dt>
           <dd><%= @book.author %></dd>
-          <dt>Publisher:</dt>
+          <dt>Publisher</dt>
           <dd><%= @book.publisher %></dd>
-          <dt>Published Date:</dt>
+          <dt>Published Date</dt>
           <dd><%= @book.published_date %></dd>
-          <dt>Number of Pages:</dt>
+          <dt>Number of Pages</dt>
           <dd><%= @book.number_of_pages %></dd>
-          <dt>Category:</dt>
+          <dt>Category</dt>
           <dd><%= @book.category.name %></dd>
-          <dt>Language:</dt>
+          <dt>Language</dt>
           <dd><%= @book.language.name %></dd>
         </dl>
       </td>

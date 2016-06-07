@@ -16,9 +16,12 @@
     float: left;
 }
 @media (min-width: 768px) {
-.col-sm-1p5 {
+    .col-sm-1p5 {
         width: 12.5%;
         float: left;
+    }
+    .dl-horizontal dt {
+        text-align: left;
     }
 }
 @media (min-width: 992px) {
@@ -35,5 +38,5 @@
 }
 
 .table th, .table td {
-     border-top: none !important;
- }
+    border-top: none !important;
+}
