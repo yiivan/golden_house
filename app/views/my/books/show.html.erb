@@ -4,7 +4,7 @@
 
 <%= render "/books/book" %>
 
-<h2>My Memos:</h2>
+<h2><strong>My Memos</strong></h2>
 <div class="memo-index">
   <% @book.memos.where(user_id: current_user).order(:id).each do |mem| %>
     <div id="show-<%= dom_id(mem) %>">

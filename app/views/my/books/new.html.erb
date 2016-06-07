@@ -1,6 +1,8 @@
+<div><%= link_to "Create a Book", new_book_path, id: "create-a-book" %><div>
+
 <h1>Select a Book</h1>
 
-<%= form_tag new_my_book_path, method: :get, id: "search-form" do %>
+<%= form_tag new_my_book_path, method: :get, id: "search-bar" do %>
   <%= text_field_tag :search, params[:search], placeholder: "Search Books..." %>
   <%= submit_tag "Search" %>
 <% end %>
@@ -18,15 +20,11 @@
           <div class="book-title"><%= b.title_snippet %></div>
         <% end %>
       </div>
+      <div><%= paginate @books %></div>
     <% end %>
   <% elsif !@books.present? %>
-    <div>There are no books containing the term "<%= params[:search] %>". Please create the book with the create button below.</div>
+    <div>There are no books containing the term "<%= params[:search] %>". Please click on the "Create a Book" link to create the book.</div>
   <% else %>
     <div></div>
   <% end %>
 </div>
-
-<div><%= (paginate @books) if !(@books == "blank" || @books == nil) %></div>
-
-<br>
-<div><%= link_to "Create a Book", new_book_path %><div>

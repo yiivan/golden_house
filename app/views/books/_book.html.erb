@@ -7,33 +7,37 @@
             <%= image_tag @book.image.url(:large) %>
           <% end %>
         </div>
-        <% if user_signed_in? %>
-          <% message = user_favorite ? "Unfavorite" : "Favorite" %>
-          <% class_name = user_favorite ? "unfavorite" : "favorite" %>
-          <% favorite_id = user_favorite ? (@book.favorites.find_by_user_id current_user).id : "" %>
-          <span class="favorite-container">
-            <%= link_to message, "javascript:void(0);", class: class_name,
-                                                        data: {"book-id": @book.id,
-                                                               "favorite-id": favorite_id,
-                                                               "favorite-count": @book.favorites.count} %>
-          </span>
-        <% else %>
-          <%= link_to "Favorite", new_session_path %>
-        <% end %>
-        <span class="favorites-count">
-          (<%= @book.favorites.count %>)
-        </span>
-
         <div>
-          <% if can? :update, @book %>
-            <%= link_to "Edit", edit_book_path(@book) %>
+          <% if user_signed_in? %>
+            <% message = user_favorite ? "Unfavorite" : "Favorite" %>
+            <% class_name = user_favorite ? "unfavorite" : "favorite" %>
+            <% favorite_id = user_favorite ? (@book.favorites.find_by_user_id current_user).id : "" %>
+            <span class="favorite-container">
+              <%= link_to message, "javascript:void(0);", class: class_name,
+                                                          data: {"book-id": @book.id,
+                                                                 "favorite-id": favorite_id,
+                                                                 "favorite-count": @book.favorites.count} %>
+            </span>
+          <% else %>
+            <%= link_to "Favorite", new_session_path %>
           <% end %>
-          |
-          <% if can? :destroy, @book %>
-            <%= link_to "Delete", book_path(@book),
-                                  method: :delete,
-                                  data: {confirm: "Are you sure?"} %>
-          <% end %>
+          <span class="favorites-count">
+            (<%= @book.favorites.count %>)
+          </span>
+
+          <span>
+            <% if can? :update, @book %>
+              |
+              <%= link_to "Edit", edit_book_path(@book) %>
+            <% end %>
+
+            <% if can? :destroy, @book %>
+              |
+              <%= link_to "Delete", book_path(@book),
+                                    method: :delete,
+                                    data: {confirm: "Are you sure?"} %>
+            <% end %>
+          </span>
         </div>
       </td>
       <td>

@@ -10,15 +10,16 @@
 
 <%= render "book" %>
 
-<br>
-
-<h3><u>Public Memos</u></h3>
+<h2><strong>Public Memos</strong></h2>
 
 <div>
   <% @book.memos.order(:id).each do |mem| %>
     <% if mem.public %>
       <div class="well well-lg">
-        <p style="color:grey">
+        <h3 class="memo-title">
+          <strong>Memo by <span class="memo-username"><%= mem.user.username %></span></strong>
+        </h3>
+        <p class="memo-dates">
           Created on: <%= mem.created_at.strftime("%B %d, %Y") %>
           &nbsp;&nbsp;
           Updated on: <%= mem.updated_at.strftime("%B %d, %Y") %>
@@ -26,29 +27,30 @@
         <%= mem.body %>
 
         <% mem.segments.each do |segm| %>
-          <h3><strong><%= segm.title %></strong></h3>
+          <h3 class="segment-title"><strong><%= segm.title %></strong></h3>
           <p><%= segm.body %></p>
         <% end  %>
+
+        <div class="memo-like">
+          <% if user_signed_in? %>
+            <% message = user_like(mem) ? "Unlike" : "Like" %>
+            <% class_name = user_like(mem) ? "unlike" : "like" %>
+            <% like_id = user_like(mem) ? (mem.likes.find_by_user_id current_user).id : "" %>
+            <span class="like-container">
+              <%= link_to message, "javascript:void(0);", class: class_name,
+                                                          data: {"book-id": @book.id,
+                                                                 "memo-id": mem.id,
+                                                                 "like-id": like_id,
+                                                                 "like-count": mem.likes.count} %>
+            </span>
+          <% else %>
+            <span><%= link_to "Like", new_session_path %></span>
+          <% end %>
+          <span id="likes-count-<%= mem.id %>">
+            (<%= mem.likes.count %>)
+          </span>
+        </div>
       </div>
-
-      <% if user_signed_in? %>
-        <% message = user_like(mem) ? "Unlike" : "Like" %>
-        <% class_name = user_like(mem) ? "unlike" : "like" %>
-        <% like_id = user_like(mem) ? (mem.likes.find_by_user_id current_user).id : "" %>
-        <span class="like-container">
-          <%= link_to message, "javascript:void(0);", class: class_name,
-                                                      data: {"book-id": @book.id,
-                                                             "memo-id": mem.id,
-                                                             "like-id": like_id,
-                                                             "like-count": mem.likes.count} %>
-        </span>
-      <% else %>
-        <span><%= link_to "Like", new_session_path %></span>
-      <% end %>
-      <span id="likes-count-<%= mem.id %>">
-        (<%= mem.likes.count %>)
-      </span>
-
     <% end %>
   <% end %>
 </div>
