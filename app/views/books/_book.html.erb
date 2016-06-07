@@ -1,0 +1,60 @@
+<div class="table-responsive">
+  <table class="table">
+    <tr class="table-row-1">
+      <td class="table-column-1" rowspan="2">
+        <% if @book.image.present? %>
+          <%= image_tag @book.image.url(:large), class: "show-book-image" %>
+        <% end %>
+
+        <% if user_signed_in? %>
+          <% message = user_favorite ? "Unfavorite" : "Favorite" %>
+          <% class_name = user_favorite ? "unfavorite" : "favorite" %>
+          <% favorite_id = user_favorite ? (@book.favorites.find_by_user_id current_user).id : "" %>
+          <div class="favorite-container">
+            <%= link_to message, "javascript:void(0);", class: class_name,
+                                                        data: {"book-id": @book.id,
+                                                               "favorite-id": favorite_id,
+                                                               "favorite-count": @book.favorites.count} %>
+          </div>
+        <% else %>
+          <%= link_to "Favorite", new_session_path %>
+        <% end %>
+        <div class="favorites-count">
+          (<%= @book.favorites.count %>)
+        </div>
+
+        <% if can? :update, @book %>
+          <%= link_to "Edit", edit_book_path(@book) %>
+        <% end %>
+        <% if can? :destroy, @book %>
+          <%= link_to "Delete", book_path(@book),
+                                method: :delete,
+                                data: {confirm: "Are you sure?"} %>
+        <% end %>
+      </td>
+      <td>
+        <h1 class="show-book-title"><%= @book.title %></h1>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <dl class="dl-horizontal">
+          <dt>ISBN:</dt>
+          <dd><%= @book.isbn %></dd>
+          <dt>Author(s):</dt>
+          <dd><%= @book.author %></dd>
+          <dt>Publisher:</dt>
+          <dd><%= @book.publisher %></dd>
+          <dt>Published Date:</dt>
+          <dd><%= @book.published_date %></dd>
+          <dt>Number of Pages:</dt>
+          <dd><%= @book.number_of_pages %></dd>
+          <dt>Category:</dt>
+          <dd><%= @book.category.name %></dd>
+          <dt>Language:</dt>
+          <dd><%= @book.language.name %></dd>
+        </dl>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -8,44 +8,8 @@
   <% end %>
 </div>
 
-<% if @book.image.present? %>
-  <%= image_tag @book.image.url(:large), class: "full-width" %>
-<% end %>
+<%= render "book" %>
 
-<h1><%= @book.title %></h1>
-<p>ISBN: <%= @book.isbn %></p>
-<p>Author(s): <%= @book.author %></p>
-<p>Publisher: <%= @book.publisher %></p>
-<p>Published Date: <%= @book.published_date %></p>
-<p>Category: <%= @book.category.name %></p>
-<p>Number of Pages: <%= @book.number_of_pages %></p>
-<p>Language: <%= @book.language.name %></p>
-
-<% if user_signed_in? %>
-  <% message = user_favorite ? "Unfavorite" : "Favorite" %>
-  <% class_name = user_favorite ? "unfavorite" : "favorite" %>
-  <% favorite_id = user_favorite ? (@book.favorites.find_by_user_id current_user).id : "" %>
-  <div class="favorite-container">
-    <%= link_to message, "javascript:void(0);", class: class_name,
-                                                data: {"book-id": @book.id,
-                                                       "favorite-id": favorite_id,
-                                                       "favorite-count": @book.favorites.count} %>
-  </div>
-<% else %>
-  <%= link_to "Favorite", new_session_path %>
-<% end %>
-<div class="favorites-count">
-  (<%= @book.favorites.count %>)
-</div>
-
-<% if can? :update, @book %>
-  <%= link_to "Edit", edit_book_path(@book) %>
-<% end %>
-<% if can? :destroy, @book %>
-  <%= link_to "Delete", book_path(@book),
-                        method: :delete,
-                        data: {confirm: "Are you sure?"} %>
-<% end %>
 <br>
 
 <h3><u>Public Memos</u></h3>
