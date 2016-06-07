@@ -3,17 +3,43 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #logo {
-    margin: 15px;
+    margin: 15px 0px 0px 60px;
 }
 
 #top-right-dropdown-button {
-    margin: 18px 18px 0px 18px;
+    margin: 18px 75px 0px 0px;
 }
 
 #top-right-dropdown-menu {
-    margin: 0px 18px 0px 0px;
+    margin: 0px 75px 0px 0px;
 }
 
 #top-right-non-signed-in {
-    margin: 23px 18px 0px 18px;
+    margin: 23px 75px 0px 0px;
+}
+
+#home-logo {
+    text-align: center;
+    margin-top: 150px;
+}
+
+#home-search-field {
+  text-align: center;
+  margin: 10px;
+
+  input[type="text"] {
+      width: 500px;
+      height: 45px;
+      font-size: 26px;
+  }
+}
+
+#home-search-button {
+  text-align: center;
+  padding: 15px 30px;
+  font-size: 26px;
+}
+
+#search-bar {
+  margin: 0px 0px 20px 10px;
 }

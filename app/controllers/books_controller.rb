@@ -22,7 +22,11 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.order(:title).page params[:page]
+    if params[:search] && (params[:search] != "")
+      @books = Book.search(params[:search]).order(:title).page(params[:page])
+    else
+      @books = "blank"
+    end
   end
 
   def edit
