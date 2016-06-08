@@ -18,6 +18,9 @@
 .table {
   margin-bottom: auto;
 }
+.page-title {
+  font-size: 26px
+}
 #home-search {
   input[type="text"] {
     width: 80%;
@@ -32,6 +35,9 @@
   }
   .dl-horizontal dt {
     text-align: left;
+  }
+  .page-title {
+    font-size: 36px
   }
   #home-search {
     input[type="text"] {

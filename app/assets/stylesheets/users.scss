@@ -3,7 +3,22 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #logo {
-  margin: 15px 0px 0px 60px;
+  margin: 15px 0px 0px 8px;
+}
+@media (min-width: 768px) {
+  #logo {
+    margin: 15px 0px 0px 8px;
+  }
+}
+@media (min-width: 992px) {
+  #logo {
+    margin: 15px 0px 0px 10px;
+  }
+}
+@media (min-width: 1200px) {
+  #logo {
+    margin: 15px 0px 0px 60px;
+  }
 }
 
 #top-right-dropdown-button {
