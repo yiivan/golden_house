@@ -4,7 +4,7 @@
   <% elsif user_signed_in? && !(@book.memos.find_by_user_id(current_user.id)) %>
     | <%= link_to "Create Memos", my_book_path(@book) %>
   <% else %>
-    <div></div>
+    | <%= link_to "Create Memos", new_session_path %>
   <% end %>
 </div>
 
