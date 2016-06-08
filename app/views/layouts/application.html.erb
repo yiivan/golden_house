@@ -12,7 +12,9 @@
   <nav class="navbar">
     <div class="container-fluid">
       <div>
-        <a href="<%= root_path %>" id="logo" class="navbar-left" ><%= image_tag "golden_house.png" %></a>
+        <%= link_to root_path, id: "logo", class: "navbar-left" do %>
+          <%= image_tag "golden_house.png", class: "img-responsive" %>
+        <% end %>
       </div>
 
       <%= render "/layouts/navbar" %>
