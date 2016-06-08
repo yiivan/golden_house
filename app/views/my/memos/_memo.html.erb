@@ -16,17 +16,19 @@
     <% end %>
   </div>
 
-  <% if can? :edit, memo %>
-    <%= link_to "Edit", edit_my_book_memo_path(@book, memo),
-                        class: "btn btn-primary btn-sm",
-                        remote: true %>
-  <% end %>
-
-  <% if can? :destroy, memo %>
-    <%= link_to "Delete", my_book_memo_path(@book, memo),
-                          method: :delete,
-                          data: {confirm: "Are you sure you want to delete this memo?"},
-                          class: "btn btn-primary btn-sm",
+<div class="edit-delete-buttons">
+    <% if can? :edit, memo %>
+      <%= link_to "Edit", edit_my_book_memo_path(@book, memo),
+                          class: "btn btn-default btn-sm",
                           remote: true %>
-  <% end %>
+    <% end %>
+
+    <% if can? :destroy, memo %>
+      <%= link_to "Delete", my_book_memo_path(@book, memo),
+                            method: :delete,
+                            data: {confirm: "Are you sure you want to delete this memo?"},
+                            class: "btn btn-default btn-sm",
+                            remote: true %>
+    <% end %>
+  </div>
 </div>
