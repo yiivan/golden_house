@@ -48,6 +48,8 @@ gem 'chosen-rails'
 gem 'jquery-turbolinks'
 gem "cocoon"
 
+gem 'jquery-ui-rails'
+
 gem "rails_12factor", group: :production
 
 group :development, :test do
