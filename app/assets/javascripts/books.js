@@ -11,7 +11,7 @@ $(document).ready(function() {
     $('.datepicker').datepicker({
       changeMonth: true,
       changeYear: true,
-      dateFormat: 'yy/mm/dd',
+      dateFormat: 'yy-mm-dd',
       minDate: "-2000Y",
       maxDate: "+1Y"
     });
