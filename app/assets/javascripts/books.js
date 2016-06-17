@@ -6,4 +6,14 @@ $(document).ready(function() {
       counter++;
     }, 180*i);
   }
+
+  $(function() {
+    $('.datepicker').datepicker({
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: 'yy-mm-dd',
+      minDate: "-2000Y",
+      maxDate: "+1Y"
+    });
+  });
 });
