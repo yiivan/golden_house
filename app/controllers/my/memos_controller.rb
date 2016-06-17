@@ -10,9 +10,11 @@ class My::MemosController < ApplicationController
     respond_to do |format|
       if @memo.save
         format.html { redirect_to my_book_path(@book), notice: "Thanks for writing a memo!" }
+        format.js { render :create_success }
       else
-        flash[:alert] = "not saved"
+        flash.now[:alert] = "not saved"
         format.html { render "/my/books/show" }
+        format.js { render :create_failure }
       end
     end
   end
@@ -41,7 +43,7 @@ class My::MemosController < ApplicationController
   private
 
   def memo_params
-    params.require(:memo).permit(:body, :public, extra_memos_attributes: [:title, :body, :id, :_destroy])
+    params.require(:memo).permit(:body, :public, segments_attributes: [:title, :body, :id, :_destroy])
   end
 
   def find_book

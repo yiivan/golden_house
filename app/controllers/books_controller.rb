@@ -19,15 +19,13 @@ class BooksController < ApplicationController
 
   def show
     @memo = Memo.new
-    respond_to do |format|
-      format.html { render }
-    end
   end
 
   def index
-    @books = Book.all
-    respond_to do |format|
-      format.html { render }
+    if params[:search] && (params[:search] != "")
+      @books = Book.search(params[:search]).order(:title).page(params[:page])
+    else
+      @books = "blank"
     end
   end
 

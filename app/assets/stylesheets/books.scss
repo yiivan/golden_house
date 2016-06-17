@@ -1,3 +1,48 @@
 // Place all the styles related to the books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.book {
+  display: none;
+}
+
+.searched-book {
+  display: inline-block;
+}
+
+.book-image {
+  width: 110px;
+  height: 165px;
+  margin: 0 auto;
+}
+
+.book-title {
+  width: 110px;
+  height: 60px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.table-column-1 {
+  width: 220px;
+}
+
+.show-book-image {
+  width: 182px;
+  height: 262px;
+  border: 1px solid black;
+}
+
+.show-book-title {
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+dl {
+  font-size: 16px;
+  text-align: left;
+}
+
+#create-a-book {
+  float: right;
+}

@@ -5,21 +5,17 @@ class LikesController < ApplicationController
     like          = Like.new
     like.user     = current_user
     like.memo     = memo
-    respond_to do |format|
-      if like.save
-        format.html { redirect_to book_path(book), notice: "Liked!" }
-      else
-        format.html { redirect_to book_path(book), alert: "You already liked!" }
-      end
+    if like.save
+      render json: {id: like.id}
+    else
+      head :internal_server_error
     end
   end
 
   def destroy
     like = Like.find params[:id]
     like.destroy
-    respond_to do |format|
-      format.html { redirect_to book_path(book), notice: "Un-liked!" }
-    end
+    head :no_content
   end
 
   private

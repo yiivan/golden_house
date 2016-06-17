@@ -1,12 +1,20 @@
-<h1>Book Collection</h1>
+<h1>My Books with Memos</h1>
 
-<% @books.each do |b| %>
-  <div style="display:inline-block">
-    <%= link_to my_book_path(b) do %>
-      <% if b.image.present? %>
-        <%= image_tag b.image.url(:small) %>
+<div class="books-row">
+  <% counter = 0 %>
+  <% @books.each do |b| %>
+    <div id="book-<%= counter %>" class="book col-xs-6 col-sm-3 col-md-2 col-lg-1p5">
+      <%= link_to my_book_path(b) do %>
+        <div class="book-image">
+          <% if b.image.present? %>
+            <%= image_tag b.image.url(:small) %>
+          <% end %>
+        </div>
+        <div class="book-title"><%= b.title_snippet %></div>
       <% end %>
-      <div><%= b.title %></div>
-    <% end %>
-  </div>
-<% end %>
+    </div>
+    <% counter += 1 %>
+  <% end %>
+</div>
+
+<div><%= paginate @books %></div>

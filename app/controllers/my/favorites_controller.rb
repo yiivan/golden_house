@@ -6,19 +6,20 @@ class My::FavoritesController < ApplicationController
     favorite.user = current_user
     favorite.book = book
     if favorite.save
-      redirect_to my_book_path(book), notice: "Added this book to favorite!"
+      render json: {id: favorite.id}
     else
-      redirect_to my_book_path(book), alert: "You'va already make this into your favorite!"
+      head :internal_server_error
     end
   end
 
   def index
+    @books = current_user.favorite_books.order(:title).page params[:page]
   end
 
   def destroy
     favorite = Favorite.find params[:id]
     favorite.destroy
-    redirect_to my_book_path(favorite.book_id), notice: "Un-favorite!"
+    head :no_content
   end
 
   private

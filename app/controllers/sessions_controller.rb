@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :redirect_if_loggedin, only: [:new, :create]
+  before_action :redirect_if_signedin, only: [:new, :create]
 
   def new
   end
@@ -10,19 +10,19 @@ class SessionsController < ApplicationController
       sign_in(user)
       redirect_to root_path, notice: "Signed In!"
     else
-      flash[:alert] = "Wrong Credentials!"
+      flash.now[:alert] = "Wrong Credentials!"
       render :new
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path, notice: "Logged out!"
+    redirect_to root_path, notice: "Signed out!"
   end
 
   private
 
-  def redirect_if_loggedin
-    redirect_to root_path, notice: "Already logged in" if user_signed_in?
+  def redirect_if_signedin
+    redirect_to root_path, notice: "Already signed in" if user_signed_in?
   end
 end

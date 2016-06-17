@@ -1,50 +1,56 @@
-<% if @book.image.present? %>
-  <%= image_tag @book.image.url(:large), class: "full-width" %>
-<% end %>
+<div>Public Memos
+  <% if user_signed_in? && (@book.memos.find_by_user_id(current_user.id)) %>
+    | <%= link_to "My Memos", my_book_path(@book) %>
+  <% elsif user_signed_in? && !(@book.memos.find_by_user_id(current_user.id)) %>
+    | <%= link_to "Create Memos", my_book_path(@book) %>
+  <% else %>
+    | <%= link_to "Create Memos", new_session_path %>
+  <% end %>
+</div>
 
-<h1><%= @book.title %></h1>
-<p>ISBN: <%= @book.isbn %></p>
-<p>Author(s): <%= @book.author %></p>
-<p>Publisher: <%= @book.publisher %></p>
-<p>Published Date: <%= @book.published_date %></p>
-<p>Category: <%= @book.category.name %></p>
-<p>Number of Pages: <%= @book.number_of_pages %></p>
-<p>Language: <%= @book.language.name %></p>
+<%= render "book" %>
 
-<% if user_favorite %>
-  <%= link_to "Un-favorite", book_favorite_path(@book, user_favorite), method: :delete %>
-<% else %>
-  <%= link_to "Favorite", book_favorites_path(@book), method: :post %>
-<% end %>
-
-(<%= @book.favorites.count %>)
-
-<% if can? :update, @book %>
-  <%= link_to "Edit", edit_book_path(@book) %>
-<% end %>
-<% if can? :destroy, @book %>
-  <%= link_to "Delete", book_path(@book),
-                        method: :delete,
-                        data: {confirm: "Are you sure?"} %>
-<% end %>
-<br>
-
-<h3><u>Public Memos</u></h3>
+<h2><strong>Public Memos</strong></h2>
 
 <div>
   <% @book.memos.order(:id).each do |mem| %>
     <% if mem.public %>
-      <%= mem.body %>
-      <p>Created on: <%= mem.created_at %></p>
-      <p>Updated on: <%= mem.updated_at %></p>
+      <div class="well well-lg">
+        <h3 class="memo-title">
+          <strong>Memo by <span class="memo-username"><%= mem.user.username %></span></strong>
+        </h3>
+        <p class="memo-dates">
+          Created on: <%= mem.created_at.strftime("%B %d, %Y") %>
+          &nbsp;&nbsp;
+          Updated on: <%= mem.updated_at.strftime("%B %d, %Y") %>
+        </p>
+        <%= mem.body %>
 
-      <% if user_like(mem) %>
-        <%= link_to "Un-Like", book_memo_like_path(@book, mem, user_like(mem)), method: :delete %>
-      <% else %>
-        <%= link_to "Like", book_memo_likes_path(@book, mem), method: :post %>
-      <% end %>
+        <% mem.segments.each do |segm| %>
+          <h3 class="segment-title"><strong><%= segm.title %></strong></h3>
+          <p><%= segm.body %></p>
+        <% end  %>
 
-      (<%= mem.likes.count %>)
+        <div class="memo-like">
+          <% if user_signed_in? %>
+            <% message = user_like(mem) ? "Unlike" : "Like" %>
+            <% class_name = user_like(mem) ? "unlike" : "like" %>
+            <% like_id = user_like(mem) ? (mem.likes.find_by_user_id current_user).id : "" %>
+            <span class="like-container">
+              <%= link_to message, "javascript:void(0);", class: class_name,
+                                                          data: {"book-id": @book.id,
+                                                                 "memo-id": mem.id,
+                                                                 "like-id": like_id,
+                                                                 "like-count": mem.likes.count} %>
+            </span>
+          <% else %>
+            <span><%= link_to "Like", new_session_path %></span>
+          <% end %>
+          <span id="likes-count-<%= mem.id %>">
+            (<%= mem.likes.count %>)
+          </span>
+        </div>
+      </div>
     <% end %>
   <% end %>
 </div>

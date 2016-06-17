@@ -1,10 +1,30 @@
+<div><%= link_to "Create a Book", new_book_path, id: "create-a-book" %><div>
+
 <h1>Select a Book</h1>
 
-<%= @book.errors.full_messages.join(", ") %>
-
-<%= simple_form_for @book do |f| %>
-  <%= f.input :title %>
-  <%= f.submit class: "btn btn-primary" %>
+<%= form_tag new_my_book_path, method: :get, id: "search-bar" do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Books..." %>
+  <%= submit_tag "Search" %>
 <% end %>
 
-<%= link_to "Create a Book", new_book_path %>
+<div class="books-row">
+  <% if @books.present? && @books != "blank" %>
+    <% @books.each do |b| %>
+      <div class="searched-book col-xs-6 col-sm-3 col-md-2 col-lg-1p5">
+        <%= link_to my_book_path(b) do %>
+          <div class="book-image">
+            <% if b.image.present? %>
+              <%= image_tag b.image.url(:small) %>
+            <% end %>
+          </div>
+          <div class="book-title"><%= b.title_snippet %></div>
+        <% end %>
+      </div>
+      <div><%= paginate @books %></div>
+    <% end %>
+  <% elsif !@books.present? %>
+    <div>There are no books containing the term "<%= params[:search] %>". Please click on the "Create a Book" link to create the book.</div>
+  <% else %>
+    <div></div>
+  <% end %>
+</div>

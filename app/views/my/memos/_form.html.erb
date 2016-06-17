@@ -1,18 +1,24 @@
-<%= simple_form_for [@book, @memo], url: my_book_memos_path(@book) do |f| %>
-  <%= f.input :body %>
-  <%= f.input :public, label: 'Do you want to share this memo with the public?' %>
+<%= simple_form_for [:my, @book, memo], remote: true do |f| %>
+  <%= f.input :body, label: "Memo", input_html: {rows: 20} %>
 
-  <%= f.error :extra_memos %>
-  <div id="extra_memos">
-    <%= f.simple_fields_for :extra_memos do |r| %>
-      <%= render "/my/memos/extra_memo_fields", f: r %>
+  <%= f.error :segments %>
+  <div class="segments">
+    <%= f.simple_fields_for :segments do |r| %>
+      <%= render "/my/memos/segment_fields", f: r %>
     <% end %>
-    <div class="links">
-      <%= link_to_add_association 'add extra memo', f, :extra_memos, partial: "/my/memos/extra_memo_fields" %>
+    <div class="add-new-segment">
+      <%= link_to_add_association 'add new segment', f, :segments, partial: "/my/memos/segment_fields", class: "btn btn-success btn-sm" %>
     </div>
   </div>
-  <%= f.submit data: {disable_with: "submitting..."} %>
+
+  <div class="public-checkbox">
+    <%= f.input :public, label: "Do you want to share this memo with the public?" %>
+  </div>
+
+  <div class="create-memo-button">
+    <%= f.submit data: {disable_with: "submitting..."}, class: "btn btn-primary" %>
+  </div>
 <% end %>
 
-<%= @memo.errors.full_messages.join(", ") %>
+<%= memo.errors.full_messages.join(", ") %>
 <br>

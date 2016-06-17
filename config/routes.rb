@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "books#index"
+  root "home#index"
 
   resources :users, only: [:new, :create]
 

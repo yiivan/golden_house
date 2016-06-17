@@ -14,9 +14,19 @@ class Book < ActiveRecord::Base
   validates :category, presence: true
   validates :language, presence: true
 
+  paginates_per 24
+
   mount_uploader :image, ImageUploader
 
   def favorite_for(user)
     favorites.find_by_user_id user
+  end
+
+  def self.search(search)
+    where( "title ILIKE ?", "%#{search}%" )
+  end
+
+  def title_snippet
+    title.length > 40 ? title[0...40] + "..." : title
   end
 end

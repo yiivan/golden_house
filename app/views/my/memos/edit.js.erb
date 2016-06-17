@@ -1,0 +1,2 @@
+$("#edit-<%= dom_id(@memo) %>").html("<%= j render '/my/memos/form', memo: @memo %>").show();
+$("#<%= dom_id(@memo) %>").hide();
