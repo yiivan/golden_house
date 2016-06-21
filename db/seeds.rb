@@ -10,12 +10,12 @@ User.destroy_all
 Category.destroy_all
 Language.destroy_all
 
-User.create([{first_name: 'Yii Van', last_name: 'Tay',
-              email: 'yiivan@gmail.com', password: 'abc',
-              password_confirmation: 'abc', admin: true},
-             {first_name: 'Evan', last_name: 'Tay',
-              email: 'evan@gmail.com', password: 'abc',
-              password_confirmation: 'abc', admin: false}])
+User.create([{username: "yiivan", first_name: "Yii Van", last_name: "Tay",
+              email: "yiivan@gmail.com", password: "abc",
+              password_confirmation: "abc", admin: true},
+             {username: "evan", first_name: "Evan", last_name: "Tay",
+              email: "evan@gmail.com", password: "abc",
+              password_confirmation: "abc", admin: false}])
 
 Category.create([{name: "Arts"},
                  {name: "Biography & True Stories"},
