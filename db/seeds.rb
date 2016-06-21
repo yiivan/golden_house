@@ -5,3 +5,45 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+User.destroy_all
+Category.destroy_all
+Language.destroy_all
+
+User.create([{first_name: 'Yii Van', last_name: 'Tay',
+              email: 'yiivan@gmail.com', password: 'abc',
+              password_confirmation: 'abc', admin: true},
+             {first_name: 'Evan', last_name: 'Tay',
+              email: 'evan@gmail.com', password: 'abc',
+              password_confirmation: 'abc', admin: false}])
+
+Category.create([{name: "Arts"},
+                 {name: "Biography & True Stories"},
+                 {name: "Language"},
+                 {name: "Literature & Literary Studies"},
+                 {name: "English Language Teaching"},
+                 {name: "Fiction & Related Items"},
+                 {name: "Reference, Information & Interdisciplinary Studies"},
+                 {name: "Humanities"},
+                 {name: "Society & Social Sciences"},
+                 {name: "Economics, Finance, Business & Management"},
+                 {name: "Law"},
+                 {name: "Medicine"},
+                 {name: "Mathematics & Science"},
+                 {name: "Earth Sciences, Geography, Environment, Planning"},
+                 {name: "Technology, Engineering, Agriculture"},
+                 {name: "Computing & Information Technology"},
+                 {name: "Health & Personal Development"},
+                 {name: "Lifestyle, Sport & Leisure"},
+                 {name: "Children’s, Teenage & Educational"}])
+
+Language.create([{name: "Chinese"},
+                 {name: "Dutch"},
+                 {name: "English"},
+                 {name: "French"},
+                 {name: "German"},
+                 {name: "Italian"},
+                 {name: "Japanese"},
+                 {name: "Korean"},
+                 {name: "Portuguese"},
+                 {name: "Spanish"}])
