@@ -35,7 +35,8 @@ Category.create([{name: "Arts"},
                  {name: "Computing & Information Technology"},
                  {name: "Health & Personal Development"},
                  {name: "Lifestyle, Sport & Leisure"},
-                 {name: "Children’s, Teenage & Educational"}])
+                 {name: "Children’s, Teenage & Educational"},
+                 {name: "Other"}])
 
 Language.create([{name: "Chinese"},
                  {name: "Dutch"},
@@ -46,4 +47,5 @@ Language.create([{name: "Chinese"},
                  {name: "Japanese"},
                  {name: "Korean"},
                  {name: "Portuguese"},
-                 {name: "Spanish"}])
+                 {name: "Spanish"},
+                 {name: "Other"}])
