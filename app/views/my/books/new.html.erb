@@ -20,7 +20,10 @@
           <div class="book-title"><%= b.title_snippet %></div>
         <% end %>
       </div>
-      <div><%= paginate @books %></div>
+      <div class="col-xs-12 books-pagination">
+        <%= paginate @books %>
+        <%= page_entries_info @books %>
+      </div>
     <% end %>
   <% elsif !@books.present? %>
     <div>There are no books containing the term "<%= params[:search] %>". Please click on the "Create a Book" link to create the book.</div>
