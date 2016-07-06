@@ -9,6 +9,11 @@
 
 <div class="books-row">
   <% if @books.present? && @books != "blank" %>
+    <div class="col-xs-12 books-pagination">
+      <%= paginate @books %>
+      <%= page_entries_info @books %>
+    </div>
+    
     <% @books.each do |b| %>
       <div class="searched-book col-xs-6 col-sm-3 col-md-2 col-lg-1p5">
         <%= link_to my_book_path(b) do %>
@@ -19,10 +24,6 @@
           </div>
           <div class="book-title"><%= b.title_snippet %></div>
         <% end %>
-      </div>
-      <div class="col-xs-12 books-pagination">
-        <%= paginate @books %>
-        <%= page_entries_info @books %>
       </div>
     <% end %>
   <% elsif !@books.present? %>

@@ -1,5 +1,10 @@
 <h1 class="page-title">My Favorite Books</h1>
 
+<div class="col-xs-12 books-pagination">
+  <%= paginate @books %>
+  <%= page_entries_info @books %>
+</div>
+
 <div class="books-row">
   <% counter = 0 %>
   <% @books.each do |favbook| %>
@@ -15,9 +20,4 @@
     </div>
     <% counter += 1 %>
   <% end %>
-</div>
-
-<div class="col-xs-12 books-pagination">
-  <%= paginate @books %>
-  <%= page_entries_info @books %>
 </div>
