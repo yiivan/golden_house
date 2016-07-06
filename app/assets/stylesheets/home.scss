@@ -1,3 +1,61 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#home-logo {
+  text-align: center;
+  margin-top: 150px;
+  margin-bottom: 20px;
+
+  img {
+    margin: auto;
+  }
+}
+
+#home-search {
+  text-align: center;
+  margin: 10px;
+
+  input[type="text"] {
+    width: 80%;
+    height: 30px;
+    font-size: 20px;
+  }
+
+  input[type="submit"] {
+    text-align: center;
+    font-size: 24px;
+    padding: 0px 20px;
+    margin: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  #home-search {
+    input[type="text"] {
+      width: 70%;
+      height: 40px;
+      font-size: 26px;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  #home-search {
+    input[type="text"] {
+      width: 70%;
+      height: 45px;
+      font-size: 30px;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  #home-search {
+    input[type="text"] {
+      width: 55%;
+      height: 45px;
+      font-size: 30px;
+    }
+  }
+}

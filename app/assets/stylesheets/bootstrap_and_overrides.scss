@@ -5,6 +5,14 @@ $btn-primary-border: darken($btn-primary-bg, 15%);
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.table {
+  margin-bottom: auto;
+}
+
+.table th, .table td {
+  border-top: none !important;
+}
+
 .col-xs-1p5,
 .col-sm-1p5,
 .col-md-1p5,
@@ -19,19 +27,7 @@ $btn-primary-border: darken($btn-primary-bg, 15%);
   width: 12.5%;
   float: left;
 }
-.table {
-  margin-bottom: auto;
-}
-.page-title {
-  font-size: 26px
-}
-#home-search {
-  input[type="text"] {
-    width: 80%;
-    height: 30px;
-    font-size: 20px;
-  }
-}
+
 @media (min-width: 768px) {
   .col-sm-1p5 {
     width: 12.5%;
@@ -40,28 +36,11 @@ $btn-primary-border: darken($btn-primary-bg, 15%);
   .dl-horizontal dt {
     text-align: left;
   }
-  .page-title {
-    font-size: 36px
-  }
-  #home-search {
-    input[type="text"] {
-      width: 70%;
-      height: 40px;
-      font-size: 26px;
-    }
-  }
 }
 @media (min-width: 992px) {
   .col-md-1p5 {
     width: 12.5%;
     float: left;
-  }
-  #home-search {
-    input[type="text"] {
-      width: 70%;
-      height: 45px;
-      font-size: 30px;
-    }
   }
 }
 @media (min-width: 1200px) {
@@ -69,15 +48,4 @@ $btn-primary-border: darken($btn-primary-bg, 15%);
     width: 12.5%;
     float: left;
   }
-  #home-search {
-    input[type="text"] {
-      width: 55%;
-      height: 45px;
-      font-size: 30px;
-    }
-  }
-}
-
-.table th, .table td {
-  border-top: none !important;
 }
