@@ -33,28 +33,16 @@
   margin: 23px 75px 0px 0px;
 }
 
-#home-logo {
-  text-align: center;
-  margin-top: 150px;
-  margin-bottom: 20px;
-
-  img {
-    margin: auto;
-  }
-}
-
-#home-search {
-  text-align: center;
-  margin: 10px;
-
-  input[type="submit"] {
-    text-align: center;
-    font-size: 24px;
-    padding: 0px 20px;
-    margin: 10px;
-  }
-}
-
 #search-bar {
   margin: 0px 0px 20px 10px;
+}
+
+.page-title {
+  font-size: 26px
+}
+
+@media (min-width: 768px) {
+  .page-title {
+    font-size: 36px
+  }
 }
