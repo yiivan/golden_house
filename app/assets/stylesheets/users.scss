@@ -2,23 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+  background: url("background.jpg") center fixed no-repeat;
+}
+
 #logo {
   margin: 15px 0px 0px 8px;
-}
-@media (min-width: 768px) {
-  #logo {
-    margin: 15px 0px 0px 8px;
-  }
-}
-@media (min-width: 992px) {
-  #logo {
-    margin: 15px 0px 0px 10px;
-  }
-}
-@media (min-width: 1200px) {
-  #logo {
-    margin: 15px 0px 0px 60px;
-  }
 }
 
 #top-right-dropdown-button {
@@ -42,11 +31,20 @@
 }
 
 @media (min-width: 768px) {
+  #logo {
+    margin: 15px 0px 0px 8px;
+  }
   .page-title {
     font-size: 36px
   }
 }
-
-body {
-  background: url("background.jpg") center fixed no-repeat;
+@media (min-width: 992px) {
+  #logo {
+    margin: 15px 0px 0px 10px;
+  }
+}
+@media (min-width: 1200px) {
+  #logo {
+    margin: 15px 0px 0px 60px;
+  }
 }
