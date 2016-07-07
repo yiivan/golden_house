@@ -5,9 +5,22 @@ $btn-primary-border: darken($btn-primary-bg, 15%);
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.fa-heart,
-.fa-heart-o {
+i.fa-heart,
+i.fa-heart-o {
   color: red;
+  font-size: 20px;
+}
+
+i.fa-thumbs-up {
+  font-size: 22px;
+}
+
+i.blue-thumb {
+  color: #3333ff;
+}
+
+i.gray-thumb {
+  color: gray;
 }
 
 .table {

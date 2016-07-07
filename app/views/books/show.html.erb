@@ -33,18 +33,24 @@
 
         <div class="memo-like">
           <% if user_signed_in? %>
-            <% message = user_like(mem) ? "Unlike" : "Like" %>
+            <% icon_type = user_like(mem) ? "blue-thumb" : "gray-thumb" %>
             <% class_name = user_like(mem) ? "unlike" : "like" %>
             <% like_id = user_like(mem) ? (mem.likes.find_by_user_id current_user).id : "" %>
             <span class="like-container">
-              <%= link_to message, "javascript:void(0);", class: class_name,
-                                                          data: {"book-id": @book.id,
-                                                                 "memo-id": mem.id,
-                                                                 "like-id": like_id,
-                                                                 "like-count": mem.likes.count} %>
+              <%= link_to "javascript:void(0);", class: class_name,
+                                                 data: {"book-id": @book.id,
+                                                         "memo-id": mem.id,
+                                                         "like-id": like_id,
+                                                         "like-count": mem.likes.count} do %>
+                <i class="like-icon-<%= mem.id %> fa fa-thumbs-up <%= icon_type %>"></i>
+              <% end %>
             </span>
           <% else %>
-            <span><%= link_to "Like", new_session_path %></span>
+            <span>
+              <%= link_to new_session_path, class: "like" do %>
+                <i class="fa fa-thumbs-up gray-thumb"></i>
+              <% end %>
+            </span>
           <% end %>
           <span id="likes-count-<%= mem.id %>">
             (<%= mem.likes.count %>)
