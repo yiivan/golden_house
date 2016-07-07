@@ -5,6 +5,11 @@ $btn-primary-border: darken($btn-primary-bg, 15%);
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.fa-heart,
+.fa-heart-o {
+  color: red;
+}
+
 .table {
   margin-bottom: auto;
 }

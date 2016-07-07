@@ -8,7 +8,8 @@ $(document).ready(function() {
     })
     .done(function(dat){
       var favoriteCount = parseInt($(this).attr("data-favorite-count")) + 1;
-      $(this).toggleClass("unfavorite favorite").text("Unfavorite").attr({"data-favorite-id": dat.id, "data-favorite-count": favoriteCount});
+      $(this).toggleClass("unfavorite favorite").attr({"data-favorite-id": dat.id, "data-favorite-count": favoriteCount});
+      $(".favorite-icon").toggleClass("fa-heart fa-heart-o")
       $(".favorites-count").text("(" + $(this).attr("data-favorite-count") + ")");
     }.bind(this))
     .fail(function(){
@@ -24,7 +25,8 @@ $(document).ready(function() {
     })
     .done(function(){
       var favoriteCount = parseInt($(this).attr("data-favorite-count")) - 1;
-      $(this).toggleClass("favorite unfavorite").text("Favorite").attr({"data-favorite-id": "", "data-favorite-count": favoriteCount});
+      $(this).toggleClass("favorite unfavorite").attr({"data-favorite-id": "", "data-favorite-count": favoriteCount});
+      $(".favorite-icon").toggleClass("fa-heart fa-heart-o")
       $(".favorites-count").text("(" + $(this).attr("data-favorite-count") + ")");
     }.bind(this))
     .fail(function(){
