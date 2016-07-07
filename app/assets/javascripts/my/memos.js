@@ -13,4 +13,10 @@ $(document).ready(function() {
     $("html, body").animate({ scrollTop: $(document).height() - 259 });
   });
 
+
+  $(function() {
+      $('#fr-editor').froalaEditor({
+        height: 480
+      });
+  });
 });

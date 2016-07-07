@@ -4,7 +4,9 @@
     &nbsp;&nbsp;
     Updated on: <%= memo.updated_at.strftime("%B %d, %Y") %>
   </p>
-  <%= memo.body %>
+  <div class="fr-view">
+    <%= memo.body.html_safe %>
+  </div>
 
   <% memo.segments.each do |segm| %>
     <h3><strong><%= segm.title %></strong></h3>

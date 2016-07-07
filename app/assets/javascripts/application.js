@@ -18,4 +18,5 @@
 //= require bootstrap
 //= require chosen-jquery
 //= require cocoon
+//= require froala_editor.min.js
 //= require_tree .
