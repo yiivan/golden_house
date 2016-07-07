@@ -47,6 +47,7 @@ gem 'simple_form'
 gem 'chosen-rails'
 gem 'jquery-turbolinks'
 gem "cocoon"
+gem "font-awesome-rails"
 
 gem 'jquery-ui-rails'
 
