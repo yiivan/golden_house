@@ -1,8 +1,9 @@
 $("#edit-<%= dom_id(@memo) %>").html("<%= j render '/my/memos/form', memo: @memo %>").show();
+$(".cancel-button").show();
 $("#<%= dom_id(@memo) %>").hide();
 
 $(function() {
-    $('#fr-editor').froalaEditor({
+    $('.fr-editor').froalaEditor({
       height: 420
     });
 });

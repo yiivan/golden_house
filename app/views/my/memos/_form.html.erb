@@ -1,11 +1,13 @@
 <%= simple_form_for [:my, @book, memo], remote: true do |f| %>
-  <%= f.input :body, label: "Memo", input_html: {id: "fr-editor"} %>
+  <%= f.input :body, label: "Memo", input_html: {class: "fr-editor"} %>
 
   <div class="public-checkbox">
     <%= f.input :public, label: "Do you want to share this memo with the public?" %>
   </div>
 
-  <div class="create-memo-button">
+  <div class="cancel-create-update-memo-buttons">
+    <button type="button" id="<%= dom_id(memo) %>" class="cancel-button btn btn-danger">Cancel</button>
+
     <%= f.submit data: {disable_with: "submitting..."}, class: "btn btn-primary" %>
   </div>
 <% end %>
