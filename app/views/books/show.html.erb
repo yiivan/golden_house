@@ -26,11 +26,6 @@
         </p>
         <%= mem.body %>
 
-        <% mem.segments.each do |segm| %>
-          <h3 class="segment-title"><strong><%= segm.title %></strong></h3>
-          <p><%= segm.body %></p>
-        <% end  %>
-
         <div class="memo-like">
           <% if user_signed_in? %>
             <% icon_type = user_like(mem) ? "blue-thumb" : "gray-thumb" %>

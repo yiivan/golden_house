@@ -8,17 +8,7 @@
     <%= memo.body.html_safe %>
   </div>
 
-  <% memo.segments.each do |segm| %>
-    <h3><strong><%= segm.title %></strong></h3>
-    <p><%= segm.body %></p>
-  <% end  %>
-  <div>
-    <% if memo.public %>
-      Likes: <%= memo.likes.count %>
-    <% end %>
-  </div>
-
-<div class="edit-delete-buttons">
+  <div class="edit-delete-buttons">
     <% if can? :edit, memo %>
       <%= link_to "Edit", edit_my_book_memo_path(@book, memo),
                           class: "btn btn-default btn-sm",

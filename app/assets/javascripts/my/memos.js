@@ -9,10 +9,6 @@ $(document).ready(function() {
     $(this).toggleClass("show-new-memo-button hide-new-memo-button").text("New Memo");
   });
 
-  $(".segments").on("click", ".add-new-segment", function() {
-    $("html, body").animate({ scrollTop: $(document).height() - 259 });
-  });
-
 
   $(function() {
       $('#fr-editor').froalaEditor({
