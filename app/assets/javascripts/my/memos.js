@@ -16,7 +16,7 @@ $(document).ready(function() {
 
   $(function() {
       $('#fr-editor').froalaEditor({
-        height: 480
+        height: 480,
       });
   });
 });
