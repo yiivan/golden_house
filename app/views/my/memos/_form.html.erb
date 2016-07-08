@@ -1,5 +1,5 @@
 <%= simple_form_for [:my, @book, memo], remote: true do |f| %>
-  <%= f.input :body, label: "Memo", input_html: {rows: 20} %>
+  <%= f.input :body, label: "Memo", input_html: {id: "fr-editor"} %>
 
   <%= f.error :segments %>
   <div class="segments">

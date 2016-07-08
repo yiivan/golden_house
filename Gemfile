@@ -51,6 +51,8 @@ gem "font-awesome-rails"
 
 gem 'jquery-ui-rails'
 
+gem "wysiwyg-rails"
+
 gem "rails_12factor", group: :production
 
 group :development, :test do
