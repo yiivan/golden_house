@@ -2,11 +2,6 @@ class Memo < ActiveRecord::Base
   belongs_to :user
   belongs_to :book
 
-  has_many :segments, dependent: :destroy
-  accepts_nested_attributes_for :segments,
-                                reject_if:     :all_blank,
-                                allow_destroy: true
-
   has_many :likes, dependent: :destroy
   has_many :liking_users, through: :likes, source: :user
 
