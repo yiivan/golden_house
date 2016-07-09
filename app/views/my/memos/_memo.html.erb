@@ -8,6 +8,12 @@
     <%= memo.body.html_safe %>
   </div>
 
+  <div>
+    <% if memo.public %>
+      Likes: <%= memo.likes.count %>
+    <% end %>
+  </div>
+
   <div class="edit-delete-buttons">
     <% if can? :edit, memo %>
       <%= link_to "Edit", edit_my_book_memo_path(@book, memo),

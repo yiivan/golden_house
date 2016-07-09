@@ -2,16 +2,21 @@ $(document).ready(function() {
 
   $(".new-memo-button").on("click", ".show-new-memo-button", function(){
     $(this).toggleClass("show-new-memo-button hide-new-memo-button").text("Hide New Memo");
-    $("html, body").animate({ scrollTop: $(document).height() - 75 + ($(".nested-fields").length * 399) });
+    $("html, body").animate({ scrollTop: $(document).height() - 24 });
   });
 
   $(".new-memo-button").on("click", ".hide-new-memo-button", function(){
     $(this).toggleClass("show-new-memo-button hide-new-memo-button").text("New Memo");
   });
 
+  $(".memo-index").on("click", ".cancel-button", function(){
+    var memoId = $(this).attr("data-memo-id");
+    $("#edit-" + memoId).hide();
+    $("#show-" + memoId).children().show();
+  });
 
   $(function() {
-      $('#fr-editor').froalaEditor({
+      $('.fr-editor').froalaEditor({
         height: 420
       });
   });
