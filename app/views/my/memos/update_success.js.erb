@@ -1,3 +1,3 @@
 $("#edit-<%= dom_id(@memo) %>").hide();
 $("#<%= dom_id(@memo) %>").remove();
-$("#show-<%= dom_id(@memo) %>").prepend("<%= j render 'my/memos/memo', memo: @memo%>");
+$("#show-<%= dom_id(@memo) %>").prepend("<%= j render 'my/memos/memo', memo: @memo%>").show();

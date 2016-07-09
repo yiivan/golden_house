@@ -12,7 +12,7 @@ $(document).ready(function() {
   $(".memo-index").on("click", ".cancel-button", function(){
     var memoId = $(this).attr("data-memo-id");
     $("#edit-" + memoId).hide();
-    $("#show-" + memoId).children().show();
+    $("#show-" + memoId).show();
   });
 
   $(function() {
