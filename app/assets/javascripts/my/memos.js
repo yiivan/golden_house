@@ -9,6 +9,11 @@ $(document).ready(function() {
     $(this).toggleClass("show-new-memo-button hide-new-memo-button").text("New Memo");
   });
 
+  $(".memo-index").on("click", ".cancel-button", function(){
+    var memoId = $(this).attr("data-memo-id");
+    $("#edit-" + memoId).hide();
+    $("#show-" + memoId).children().show();
+  });
 
   $(function() {
       $('.fr-editor').froalaEditor({
