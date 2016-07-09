@@ -10,9 +10,9 @@ $(document).ready(function() {
   });
 
   $(".memo-index").on("click", ".cancel-button", function(){
-    var memoId = $(this).attr("id")
-    $(".edit-" + memoId).hide();
-    $(".show-" + memoId).show();
+    var memoId = $(this).attr("data-memo-id");
+    $("#edit-" + memoId).hide();
+    $("#show-" + memoId).children().show();
   });
 
   $(function() {

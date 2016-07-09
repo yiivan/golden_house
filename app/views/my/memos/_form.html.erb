@@ -6,7 +6,7 @@
   </div>
 
   <div class="cancel-create-update-memo-buttons">
-    <button type="button" id="<%= dom_id(memo) %>" class="cancel-button btn btn-danger">Cancel</button>
+    <button type="button" data-memo-id="<%= dom_id(memo) %>" class="cancel-button btn btn-danger">Cancel</button>
 
     <%= f.submit data: {disable_with: "submitting..."}, class: "btn btn-primary" %>
   </div>
