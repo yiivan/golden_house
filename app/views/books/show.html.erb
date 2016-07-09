@@ -1,4 +1,5 @@
-<div>Public Memos
+<div>
+  Public Memos
   <% if user_signed_in? && (@book.memos.find_by_user_id(current_user.id)) %>
     | <%= link_to "My Memos", my_book_path(@book) %>
   <% elsif user_signed_in? && !(@book.memos.find_by_user_id(current_user.id)) %>
@@ -24,7 +25,9 @@
           &nbsp;&nbsp;
           Updated on: <%= mem.updated_at.strftime("%B %d, %Y") %>
         </p>
-        <%= mem.body %>
+        <div class="fr-view">
+          <%= mem.body.html_safe %>
+        </div>
 
         <div class="memo-like">
           <% if user_signed_in? %>
