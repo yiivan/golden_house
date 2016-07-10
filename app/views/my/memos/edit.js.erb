@@ -1,5 +1,4 @@
 $("#edit-<%= dom_id(@memo) %>").html("<%= j render '/my/memos/form', memo: @memo %>").show();
-$(".cancel-button").show();
 $("#show-<%= dom_id(@memo) %>").hide();
 
 $(function() {
