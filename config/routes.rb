@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
+  
   root "home#index"
 
   resources :users, only: [:new, :create]

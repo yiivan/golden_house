@@ -7,13 +7,13 @@
   <%= submit_tag "Search" %>
 <% end %>
 
-<div class="books-row">
-  <% if @books.present? && @books != "blank" %>
-    <div class="col-xs-12 books-pagination">
-      <%= paginate @books %>
-      <%= page_entries_info @books %>
-    </div>
-    
+<% if @books.present? && @books != "blank" %>
+  <div class="col-xs-12 books-pagination">
+    <%= paginate @books %>
+    <%= page_entries_info @books %>
+  </div>
+
+  <div class="books-row">
     <% @books.each do |b| %>
       <div class="searched-book col-xs-6 col-sm-3 col-md-2 col-lg-1p5">
         <%= link_to my_book_path(b) do %>
@@ -26,9 +26,14 @@
         <% end %>
       </div>
     <% end %>
-  <% elsif !@books.present? %>
-    <div>There are no books containing the term "<%= params[:search] %>". Please click on the "Create a Book" link to create the book.</div>
-  <% else %>
-    <div></div>
-  <% end %>
-</div>
+  </div>
+
+  <div class="col-xs-12 books-pagination">
+    <%= paginate @books %>
+    <%= page_entries_info @books %>
+  </div>
+<% elsif !@books.present? %>
+  <div>There are no books containing the term "<%= params[:search] %>". Please click on the "Create a Book" link to create the book.</div>
+<% else %>
+  <div></div>
+<% end %>

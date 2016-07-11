@@ -37,36 +37,36 @@ gem 'friendly_id'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 
-gem "cancancan"
+gem 'cancancan'
 
 gem 'carrierwave'
-gem "mini_magick"
-gem "fog"
+gem 'mini_magick'
+gem 'fog'
 
 gem 'simple_form'
 gem 'chosen-rails'
 gem 'jquery-turbolinks'
-gem "cocoon"
-gem "font-awesome-rails"
+gem 'cocoon'
+gem 'font-awesome-rails'
 
 gem 'jquery-ui-rails'
 
-gem "wysiwyg-rails"
+gem 'ckeditor', github: 'galetahub/ckeditor'
 
-gem "rails_12factor", group: :production
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
-  gem "rspec-rails"
-  gem "nyan-cat-formatter"
-  gem "factory_girl_rails"
+  gem 'rspec-rails'
+  gem 'nyan-cat-formatter'
+  gem 'factory_girl_rails'
 
-  gem "capybara"
-  gem "launchy"
+  gem 'capybara'
+  gem 'launchy'
 
-  gem 'faker', github: "stympy/faker"
+  gem 'faker', github: 'stympy/faker'
 end
 
 group :development do
@@ -76,11 +76,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-  gem "interactive_editor"
-  gem "awesome_print"
-  gem "hirb"
+  gem 'interactive_editor'
+  gem 'awesome_print'
+  gem 'hirb'
 
   gem 'quiet_assets'
 
-  gem "rails-erd"
+  gem 'rails-erd'
 end

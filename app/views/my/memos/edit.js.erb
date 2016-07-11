@@ -1,8 +1,4 @@
 $("#edit-<%= dom_id(@memo) %>").html("<%= j render '/my/memos/form', memo: @memo %>").show();
 $("#show-<%= dom_id(@memo) %>").hide();
 
-$(function() {
-    $('.fr-editor').froalaEditor({
-      height: 420
-    });
-});
+CKEDITOR.replace( "memo-editor-<%= dom_id(@memo) %>" );
