@@ -3,6 +3,7 @@ $(document).ready(function() {
   $(".new-memo-button").on("click", ".show-new-memo-button", function(){
     $(this).toggleClass("show-new-memo-button hide-new-memo-button").text("Hide New Memo");
     $("html, body").animate({ scrollTop: $(document).height() - 24 });
+    CKEDITOR.replace( "memo-editor-new_memo" );
   });
 
   $(".new-memo-button").on("click", ".hide-new-memo-button", function(){
@@ -15,9 +16,5 @@ $(document).ready(function() {
     $("#show-" + memoId).show();
   });
 
-  $(function() {
-      $('.fr-editor').froalaEditor({
-        height: 420
-      });
-  });
+  CKEDITOR.replace( "memo-editor-new_memo" );
 });
