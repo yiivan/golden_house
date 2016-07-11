@@ -15,7 +15,10 @@ User.create([{username: "yiivan", first_name: "Yii Van", last_name: "Tay",
               password_confirmation: "abc", admin: true},
              {username: "evan", first_name: "Evan", last_name: "Tay",
               email: "evan@gmail.com", password: "abc",
-              password_confirmation: "abc", admin: false}])
+              password_confirmation: "abc"},
+             {username: "guest", first_name: "Guest", last_name: "Tay",
+              email: "guest@gmail.com", password: "abc",
+              password_confirmation: "abc"}])
 
 Category.create([{name: "Arts"},
                  {name: "Biography & True Stories"},
