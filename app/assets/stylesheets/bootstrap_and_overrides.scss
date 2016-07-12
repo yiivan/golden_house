@@ -2,6 +2,8 @@ $btn-primary-bg: #FFD700;
 $btn-primary-color: darken($btn-primary-bg, 35%);
 $btn-primary-border: darken($btn-primary-bg, 15%);
 
+$btn-warning-bg: orange;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 

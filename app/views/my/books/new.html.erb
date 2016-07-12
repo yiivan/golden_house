@@ -1,10 +1,10 @@
-<div><%= link_to "Create a Book", new_book_path, id: "create-a-book" %><div>
+<div><%= link_to "Create a Book", new_book_path, id: "create-a-book", class: "btn btn-primary" %><div>
 
 <h1 class="page-title">Select a Book</h1>
 
 <%= form_tag new_my_book_path, method: :get, id: "search-bar" do %>
   <%= text_field_tag :search, params[:search], placeholder: "Search Books..." %>
-  <%= submit_tag "Search" %>
+  <%= submit_tag "Search", class: "btn btn-default btn-sm" %>
 <% end %>
 
 <% if @books.present? && @books != "blank" %>
