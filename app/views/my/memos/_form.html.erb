@@ -1,6 +1,6 @@
 <%= simple_form_for [:my, @book, memo], remote: true do |f| %>
-  <%= f.input :body, label: "Memo", input_html: {id: "memo-editor-#{dom_id(memo)}",
-                                                 ckeditor: {toolbar: "Full"}} %>
+  <%= f.input :body, label: "Memo", as: :ckeditor, input_html: {id: "memo-editor-#{dom_id(memo)}",
+                                                                ckeditor: {toolbar: "special"}} %>
 
   <div class="public-checkbox">
     <%= f.input :public, label: "Do you want to share this memo with the public?" %>
