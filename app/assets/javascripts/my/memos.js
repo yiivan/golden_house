@@ -16,4 +16,5 @@ $(document).ready(function() {
     $("#show-" + memoId).show();
   });
 
+  CKEDITOR.replace( "memo-editor-new_memo", {toolbar : 'special'});
 });
