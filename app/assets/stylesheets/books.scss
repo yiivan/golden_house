@@ -57,3 +57,8 @@ dl {
   margin: 20px auto;
   display: inline-block;
 }
+
+.pagination > li > a {
+  float: none;
+  margin-left: -5px;
+}
