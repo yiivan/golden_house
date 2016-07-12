@@ -6,10 +6,7 @@
 <% end %>
 
 <% if @books.present? && @books != "blank" %>
-  <div class="col-xs-12 books-pagination">
-    <%= paginate @books %>
-    <%= page_entries_info @books %>
-  </div>
+  <%= render "/my/books/pagination" %>
 
   <div class="books-row">
     <% counter = 0 %>
@@ -28,10 +25,7 @@
     <% end %>
   </div>
 
-  <div class="col-xs-12 books-pagination">
-    <%= paginate @books %>
-    <%= page_entries_info @books %>
-  </div>
+  <%= render "/my/books/pagination" %>
 <% elsif !@books.present? %>
   <div>There are no books containing the term "<%= params[:search] %>".</div>
 <% else %>
