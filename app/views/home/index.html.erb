@@ -4,5 +4,5 @@
 
 <%= form_tag books_path, method: :get, id: "home-search" do %>
   <div><%= text_field_tag :search, params[:search], placeholder: 'Search the term "pocket" for demo purposes' %></div>
-  <div><%= submit_tag "Search" %></div>
+  <div><%= submit_tag "Search", class: "btn btn-default" %></div>
 <% end %>
