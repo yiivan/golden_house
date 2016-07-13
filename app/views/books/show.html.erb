@@ -31,7 +31,7 @@
 
         <div class="memo-like">
           <% if user_signed_in? %>
-            <% icon_type = user_like(mem) ? "blue-thumb" : "gray-thumb" %>
+            <% like_color = user_like(mem) ? "blue-like" : "gray-like" %>
             <% class_name = user_like(mem) ? "unlike" : "like" %>
             <% like_id = user_like(mem) ? (mem.likes.find_by_user_id current_user).id : "" %>
             <span class="like-container">
@@ -40,13 +40,19 @@
                                                          "memo-id": mem.id,
                                                          "like-id": like_id,
                                                          "like-count": mem.likes.count} do %>
-                <i class="like-icon-<%= mem.id %> fa fa-thumbs-up <%= icon_type %>"></i>
+                <span class="<%= like_color %>">
+                  <i class="like-icon-<%= mem.id %> fa fa-thumbs-up"></i>
+                  <span>Like</span>
+                </span>
               <% end %>
             </span>
           <% else %>
             <span>
               <%= link_to new_session_path, class: "like" do %>
-                <i class="fa fa-thumbs-up gray-thumb"></i>
+                <span class="gray-like">
+                  <i class="fa fa-thumbs-up"></i>
+                  <span>Like</span>
+                </span>
               <% end %>
             </span>
           <% end %>

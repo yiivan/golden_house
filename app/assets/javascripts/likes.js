@@ -11,7 +11,7 @@ $(document).ready(function() {
       var likeIcon = ".like-icon-" + $(this).attr("data-memo-id");
       var likesCountID = "#likes-count-" + $(this).attr("data-memo-id");
       $(this).toggleClass("unlike like").attr({"data-like-id": dat.id, "data-like-count": likeCount});
-      $(likeIcon).toggleClass("blue-thumb gray-thumb");
+      $(likeIcon).parent().toggleClass("blue-like gray-like");
       $(likesCountID).text("(" + $(this).attr("data-like-count") + ")");
     }.bind(this))
     .fail(function(){
@@ -30,7 +30,7 @@ $(document).ready(function() {
       var likeIcon = ".like-icon-" + $(this).attr("data-memo-id");
       var likesCountID = "#likes-count-" + $(this).attr("data-memo-id");
       $(this).toggleClass("like unlike").attr({"data-like-id": "", "data-like-count": likeCount});
-      $(likeIcon).toggleClass("blue-thumb gray-thumb");
+      $(likeIcon).parent().toggleClass("blue-like gray-like");
       $(likesCountID).text("(" + $(this).attr("data-like-count") + ")");
     }.bind(this))
     .fail(function(){

@@ -18,11 +18,13 @@
                                                          "favorite-id": favorite_id,
                                                          "favorite-count": @book.favorites.count} do %>
                 <i class="favorite-icon fa fa-heart<%= icon_type %>"></i>
+                <span class="favorite-label">Favorite</span>
               <% end %>
             </span>
           <% else %>
             <%= link_to new_session_path, class: "favorite" do %>
               <i class="fa fa-heart-o"></i>
+              <span class="favorite-label">Favorite</span>
             <% end %>
           <% end %>
           <span class="favorites-count">

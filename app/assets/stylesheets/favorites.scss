@@ -6,3 +6,18 @@ a.favorite,
 a.unfavorite {
   text-decoration: none;
 }
+
+a.favorite:hover,
+a.unfavorite:hover {
+  color: red;
+}
+
+.favorite-label {
+  font-size: 16px;
+  font-weight: bold;
+  color: red;
+}
+
+.favorites-count {
+  font-size: 16px;
+}
