@@ -17,9 +17,9 @@
   <% @book.memos.order(:id).each do |mem| %>
     <% if mem.public %>
       <div class="well well-lg">
-        <h3 class="memo-title">
-          <strong>Memo by <span class="memo-username"><%= mem.user.username %></span></strong>
-        </h3>
+        <span class="memo-username">
+          <strong><%= mem.user.username %></strong>
+        </span>
         <p class="memo-dates">
           Created on: <%= mem.created_at.strftime("%B %d, %Y") %>
           &nbsp;&nbsp;
