@@ -23,6 +23,7 @@
   height: 60px;
   margin: 0 auto;
   overflow: hidden;
+  font-weight:bold;
 }
 
 .table-column-1 {
@@ -51,11 +52,17 @@ dl {
 
 .books-pagination {
   text-align: center;
+  margin: 20px auto;
 }
 
 .books-pagination-info {
-  margin: 20px auto;
+  padding: 3px 12px;
+  margin-left: -3px;
   display: inline-block;
+  background-color: white;
+  border: 1px solid lavender;
+  border-radius: 3px;
+  font-size: 16px;
 }
 
 .pagination > li > a {

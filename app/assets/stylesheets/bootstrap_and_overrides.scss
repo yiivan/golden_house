@@ -9,6 +9,10 @@ $btn-warning-bg: orange;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.pagination {
+  margin: auto auto 20px auto;
+}
+
 i.fa-heart,
 i.fa-heart-o {
   color: red;
@@ -57,6 +61,9 @@ i.gray-thumb {
   }
   .dl-horizontal dt {
     text-align: left;
+  }
+  .pagination {
+    margin: auto;
   }
 }
 @media (min-width: 992px) {
