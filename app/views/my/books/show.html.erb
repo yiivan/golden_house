@@ -1,4 +1,4 @@
-<div>
+<div class="public-self-memo-switcher">
   <%= link_to "Public Memos", book_path(@book) %> |
   <%= (@book.memos.find_by_user_id(current_user.id) ? "My Memos" : "Create Memos") %>
 </div>
