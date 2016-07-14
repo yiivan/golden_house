@@ -2,14 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.public-checkbox {
+.public-radio-buttons {
   text-align: right;
 }
 
 .public-label {
   font-weight: bold !important;
   font-size: 18px;
-  color: #ff1493;
+  display: block;
+}
+
+.public-button {
+  font-size: 18px;
+  margin: auto 5px;
+  display: inline-block;
+
+  label {
+    font-weight: bold;
+  }
 }
 
 .memo-username {
