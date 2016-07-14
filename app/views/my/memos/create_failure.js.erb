@@ -1,1 +1,3 @@
 $(".memo-form").html("<%= j render '/my/memos/form', memo: @memo %>");
+
+CKEDITOR.replace( "memo-editor-<%= dom_id(@memo) %>", {toolbar : 'special'});
