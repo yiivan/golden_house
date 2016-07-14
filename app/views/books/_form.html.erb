@@ -9,7 +9,7 @@
   <%= f.input :number_of_pages %>
   <%= f.association :category %>
   <%= f.association :language %>
-  <%= f.input :image %>
+  <%= f.input :image, label: "Cover Image" %>
 
   <% if @book.id %>
     <%= link_to "Cancel", book_path(@book), class: "btn btn-danger" %>
