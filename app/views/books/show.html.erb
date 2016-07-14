@@ -13,9 +13,11 @@
 
 <h2><strong>Public Memos</strong></h2>
 
+<% any_public = false %>
 <div>
   <% @book.memos.order(:id).each do |mem| %>
     <% if mem.public %>
+      <% any_public = true %>
       <div class="well well-lg">
         <span class="memo-username">
           <strong><%= mem.user.username %></strong>
@@ -64,3 +66,9 @@
     <% end %>
   <% end %>
 </div>
+
+<% if any_public == false %>
+  <div class="no-public-memo-notice">
+    <strong>- There is no public memo for this book. -</strong>
+  </div>
+<% end %>
