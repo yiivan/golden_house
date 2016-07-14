@@ -3,7 +3,7 @@
                                                                 ckeditor: {toolbar: "special"}} %>
 
   <div class="public-checkbox">
-    <%= f.input :public, label: "Do you want to share this memo with the public?" %>
+    <%= f.input :public, label: "Do you want to share this memo with the public?", label_html: { class: 'public-label' } %>
   </div>
 
   <div class="cancel-create-update-memo-buttons">

@@ -1,4 +1,4 @@
-<div>
+<div class="public-self-memo-switcher">
   Public Memos
   <% if user_signed_in? && (@book.memos.find_by_user_id(current_user.id)) %>
     | <%= link_to "My Memos", my_book_path(@book) %>
@@ -13,13 +13,15 @@
 
 <h2><strong>Public Memos</strong></h2>
 
+<% any_public = false %>
 <div>
   <% @book.memos.order(:id).each do |mem| %>
     <% if mem.public %>
+      <% any_public = true %>
       <div class="well well-lg">
-        <h3 class="memo-title">
-          <strong>Memo by <span class="memo-username"><%= mem.user.username %></span></strong>
-        </h3>
+        <span class="memo-username">
+          <strong><%= mem.user.username %></strong>
+        </span>
         <p class="memo-dates">
           Created on: <%= mem.created_at.strftime("%B %d, %Y") %>
           &nbsp;&nbsp;
@@ -31,7 +33,7 @@
 
         <div class="memo-like">
           <% if user_signed_in? %>
-            <% icon_type = user_like(mem) ? "blue-thumb" : "gray-thumb" %>
+            <% like_color = user_like(mem) ? "blue-like" : "gray-like" %>
             <% class_name = user_like(mem) ? "unlike" : "like" %>
             <% like_id = user_like(mem) ? (mem.likes.find_by_user_id current_user).id : "" %>
             <span class="like-container">
@@ -40,13 +42,19 @@
                                                          "memo-id": mem.id,
                                                          "like-id": like_id,
                                                          "like-count": mem.likes.count} do %>
-                <i class="like-icon-<%= mem.id %> fa fa-thumbs-up <%= icon_type %>"></i>
+                <span class="<%= like_color %>">
+                  <i class="like-icon-<%= mem.id %> fa fa-thumbs-up"></i>
+                  <span>Like</span>
+                </span>
               <% end %>
             </span>
           <% else %>
             <span>
               <%= link_to new_session_path, class: "like" do %>
-                <i class="fa fa-thumbs-up gray-thumb"></i>
+                <span class="gray-like">
+                  <i class="fa fa-thumbs-up"></i>
+                  <span>Like</span>
+                </span>
               <% end %>
             </span>
           <% end %>
@@ -58,3 +66,9 @@
     <% end %>
   <% end %>
 </div>
+
+<% if any_public == false %>
+  <div class="no-public-memo-notice">
+    <strong>- There is no public memo for this book. -</strong>
+  </div>
+<% end %>

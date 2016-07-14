@@ -2,11 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.memo-title {
-  margin: auto;
+.public-checkbox {
+  text-align: right;
+}
+
+.public-label {
+  font-weight: bold !important;
+  font-size: 18px;
+  color: #ff1493;
 }
 
 .memo-username {
+  font-size: 18px;
   color: #337ab7;
 }
 
@@ -14,9 +21,9 @@
   color: gray;
 }
 
-.public-checkbox {
-  text-align: right;
-  font-size: 18px;
+.no-public-memo-notice {
+  font-size: 20px;
+  color: red;
 }
 
 .new-memo-button {
