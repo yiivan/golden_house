@@ -57,7 +57,14 @@ body::after {
     margin: 15px 0px 0px 8px;
   }
   .page-title {
-    font-size: 36px;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .page-title-select {
+    margin-left: 9px;
+  }
+  .page-title-my-books {
+    margin-left: 18px;
   }
 }
 @media (min-width: 992px) {
@@ -67,6 +74,6 @@ body::after {
 }
 @media (min-width: 1200px) {
   #logo {
-    margin: 15px 0px 0px 60px;
+    margin: 15px 0px 0px 50px;
   }
 }
