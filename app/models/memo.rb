@@ -5,7 +5,7 @@ class Memo < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   has_many :liking_users, through: :likes, source: :user
 
-  validates :public, inclusion: {in: [true, false]}
+  validates :public, inclusion: {in: [true, false], message: "this field is required"}
   validates :body, presence: true
 
   def like_for(user)
