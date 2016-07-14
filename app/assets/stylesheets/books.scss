@@ -79,3 +79,17 @@ dl {
     border-radius: 3px;
   }
 }
+
+.col-ms-4 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+@media (min-width: 500px) {
+  .col-ms-4 {
+    width: 33.33%;
+    width: calc(100% / 3);
+    float: left;
+  }
+}

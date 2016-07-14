@@ -11,7 +11,7 @@
   <div class="books-row">
     <% counter = 0 %>
     <% @books.each do |b| %>
-      <div id="book-<%= counter %>" class="book col-xs-6 col-sm-3 col-md-2 col-lg-1p5">
+      <div id="book-<%= counter %>" class="book col-xs-6 col-ms-4 col-sm-3 col-md-2 col-lg-1p5">
         <%= link_to book_path(b) do %>
           <div class="book-image">
             <% if b.image.present? %>

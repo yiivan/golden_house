@@ -12,7 +12,7 @@
 
   <div class="books-row">
     <% @books.each do |b| %>
-      <div class="searched-book col-xs-6 col-sm-3 col-md-2 col-lg-1p5">
+      <div class="searched-book col-xs-6 col-ms-4 col-sm-3 col-md-2 col-lg-1p5">
         <%= link_to my_book_path(b) do %>
           <div class="book-image">
             <% if b.image.present? %>
