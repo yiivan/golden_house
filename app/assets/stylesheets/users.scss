@@ -39,8 +39,13 @@ body::after {
   font-weight: bold;
 }
 
-#search-bar {
+.create-memos-search {
   margin: 0px 0px 20px 10px;
+}
+
+.create-memos-search-bar {
+  width: 120px;
+  margin-bottom: 3px;
 }
 
 .page-title {
@@ -55,6 +60,10 @@ body::after {
 @media (min-width: 768px) {
   #logo {
     margin: 15px 0px 0px 8px;
+  }
+  .create-memos-search-bar {
+    width: auto;
+    margin-bottom: auto;
   }
   .page-title {
     font-size: 28px;
