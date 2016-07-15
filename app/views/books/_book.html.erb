@@ -45,24 +45,32 @@
           </span>
         </div>
       </td>
-      <td>
-        <h1 class="show-book-title"><strong><%= @book.title %></strong></h1>
-        <dl class="dl-horizontal">
-          <dt>ISBN</dt>
-          <dd><%= @book.isbn %></dd>
-          <dt>Author(s)</dt>
-          <dd><%= @book.author %></dd>
-          <dt>Publisher</dt>
-          <dd><%= @book.publisher %></dd>
-          <dt>Published Date</dt>
-          <dd><%= @book.published_date %></dd>
-          <dt>Number of Pages</dt>
-          <dd><%= @book.number_of_pages %></dd>
-          <dt>Category</dt>
-          <dd><%= @book.category.name %></dd>
-          <dt>Language</dt>
-          <dd><%= @book.language.name %></dd>
-        </dl>
+      <td class="table-column-2">
+        <div>
+          <%= button_tag "Show Book Info", "class": "book-info-button show-book-info-button btn btn-info btn-xs",
+                                           "type": "button",
+                                           "data-toggle": "collapse",
+                                           "data-target": ".show-book-info" %>
+        </div>
+        <div class="show-book-info">
+          <h1 class="show-book-title"><strong><%= @book.title %></strong></h1>
+          <dl class="dl-horizontal">
+            <dt>ISBN</dt>
+            <dd><%= @book.isbn %></dd>
+            <dt>Author(s)</dt>
+            <dd><%= @book.author %></dd>
+            <dt>Publisher</dt>
+            <dd><%= @book.publisher %></dd>
+            <dt>Published Date</dt>
+            <dd><%= @book.published_date %></dd>
+            <dt>Number of Pages</dt>
+            <dd><%= @book.number_of_pages %></dd>
+            <dt>Category</dt>
+            <dd><%= @book.category.name %></dd>
+            <dt>Language</dt>
+            <dd><%= @book.language.name %></dd>
+          </dl>
+        </div>
       </td>
     </tr>
   </table>
