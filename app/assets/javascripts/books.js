@@ -7,6 +7,15 @@ $(document).ready(function() {
     }, 180*i);
   }
 
+  $(".table-column-2").on("click", ".show-book-info-button", function(){
+    $(this).toggleClass("show-book-info-button hide-book-info-button").text("Hide Book Info");
+    $(".table-responsive").animate({ scrollLeft: 205 });
+  });
+
+  $(".table-column-2").on("click", ".hide-book-info-button", function(){
+    $(this).toggleClass("show-book-info-button hide-book-info-button").text("Show Book Info");
+  });
+
   $(function() {
     $('.datepicker').datepicker({
       changeMonth: true,

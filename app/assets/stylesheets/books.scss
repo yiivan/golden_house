@@ -71,6 +71,24 @@ dl {
   margin-left: -5px;
 }
 
+.book-info-button {
+  display: none;
+}
+
+@media (max-width: 499px) {
+  .book-info-button {
+    display: inline-block;
+  }
+  .show-book-info {
+    display: none;
+  }
+}
+@media (min-width: 500px) {
+  .show-book-info {
+    display: block;
+  }
+}
+
 @media (max-width: 767px) {
   .create-a-book {
     padding: 5px 10px;
