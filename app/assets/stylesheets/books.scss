@@ -71,7 +71,7 @@ dl {
   margin-left: -5px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .create-a-book {
     padding: 5px 10px;
     font-size: 12px;
@@ -86,7 +86,7 @@ dl {
   padding-right: 10px;
   padding-left: 10px;
 }
-@media (min-width: 500px) {
+@media (min-width: 500px) and (max-width: 767px) {
   .col-ms-4 {
     width: 33.33%;
     width: calc(100% / 3);
