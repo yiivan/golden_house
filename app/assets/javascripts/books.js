@@ -21,8 +21,7 @@ $(document).ready(function() {
       changeMonth: true,
       changeYear: true,
       dateFormat: 'yy-mm-dd',
-      minDate: "-2000Y",
-      maxDate: "+1Y"
+      yearRange: "0100:+1"
     });
   });
 });
