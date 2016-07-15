@@ -27,16 +27,20 @@ body::after {
 }
 
 #top-right-dropdown-button {
-  margin: 18px 75px 0px 0px;
+  margin: 0px 5px -32px 0px;
 }
 
 #top-right-dropdown-menu {
-  margin: 0px 75px 0px 0px;
+  margin: 24px 5px 0px 0px;
 }
 
 #top-right-non-signed-in {
-  margin: 23px 75px 0px 0px;
+  margin: 10px 10px -20px 0px;
   font-weight: bold;
+}
+
+#main-search-bar {
+  margin-top: 10px;
 }
 
 .create-memos-search {
@@ -50,6 +54,7 @@ body::after {
 
 .page-title {
   font-size: 26px;
+  font-weight: bold;
 }
 
 .public-self-memo-switcher {
@@ -57,9 +62,41 @@ body::after {
   font-weight: bold;
 }
 
+@media (min-width: 500px) and (max-width: 767px) {
+  #top-right-dropdown-button {
+    margin: 0px 15px -50px 0px;
+  }
+  #top-right-dropdown-menu {
+    margin: 33px 15px 0px 0px;
+  }
+  #top-right-non-signed-in {
+    margin: 15px 10px 0px 0px;
+  }
+  #main-search-bar {
+    margin-top: auto;
+  }
+  .page-title-user-session {
+    margin-top: auto;
+  }
+  .page-title {
+    margin: auto;
+  }
+}
 @media (min-width: 768px) {
   #logo {
     margin: 15px 0px 0px 8px;
+  }
+  #top-right-dropdown-button {
+    margin: 20px 20px 0px 0px;
+  }
+  #top-right-dropdown-menu {
+    margin: 0px 20px 0px 0px;
+  }
+  #top-right-non-signed-in {
+    margin: 20px 20px 0px 0px;
+  }
+  #main-search-bar {
+    margin-top: auto;
   }
   .create-memos-search-bar {
     width: auto;
@@ -67,7 +104,6 @@ body::after {
   }
   .page-title {
     font-size: 28px;
-    font-weight: bold;
   }
   .page-title-select {
     margin-left: 9px;
@@ -80,9 +116,27 @@ body::after {
   #logo {
     margin: 15px 0px 0px 10px;
   }
+  #top-right-dropdown-button {
+    margin: 20px 25px 0px 0px;
+  }
+  #top-right-dropdown-menu {
+    margin: 0px 25px 0px 0px;
+  }
+  #top-right-non-signed-in {
+    margin: 20px 25px 0px 0px;
+  }
 }
 @media (min-width: 1200px) {
   #logo {
     margin: 15px 0px 0px 50px;
+  }
+  #top-right-dropdown-button {
+    margin: 18px 75px 0px 0px;
+  }
+  #top-right-dropdown-menu {
+    margin: 0px 75px 0px 0px;
+  }
+  #top-right-non-signed-in {
+    margin: 23px 75px 0px 0px;
   }
 }
