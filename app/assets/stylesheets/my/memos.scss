@@ -47,3 +47,9 @@
 .edit-delete-buttons {
   text-align: right;
 }
+
+@media (max-width: 499px) {
+  .no-public-memo-notice {
+    font-size: 16px;
+  }
+}
