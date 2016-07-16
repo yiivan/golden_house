@@ -7,7 +7,7 @@
             <%= image_tag @book.image.url(:large) %>
           <% end %>
         </div>
-        <div>
+        <div class="favorite-edit-delete">
           <% if user_signed_in? %>
             <% icon_type = user_favorite ? "" : "-o" %>
             <% class_name = user_favorite ? "unfavorite" : "favorite" %>
