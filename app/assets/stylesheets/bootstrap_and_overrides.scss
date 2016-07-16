@@ -41,6 +41,18 @@ i.fa-thumbs-up {
   border-top: none !important;
 }
 
+@media (max-width: 767px) {
+  .dl-horizontal dt {
+    width: 140px;
+    text-align: left;
+    white-space: normal;
+  }
+  .dl-horizontal dd {
+    margin-left: 160px;
+    white-space: normal;
+  }
+}
+
 .col-xs-1p5,
 .col-sm-1p5,
 .col-md-1p5,

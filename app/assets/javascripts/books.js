@@ -9,7 +9,7 @@ $(document).ready(function() {
 
   $(".table-column-2").on("click", ".show-book-info-button", function(){
     $(this).toggleClass("show-book-info-button hide-book-info-button").text("Hide Book Info");
-    $(".table-responsive").animate({ scrollLeft: 205 });
+    $(".table-responsive").animate({ scrollLeft: 207 });
   });
 
   $(".table-column-2").on("click", ".hide-book-info-button", function(){
