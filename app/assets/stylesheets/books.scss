@@ -79,17 +79,16 @@ dl {
   display: none;
 }
 
+.show-book-info {
+  display: block;
+}
+
 @media (max-width: 499px) {
   .book-info-button {
     display: inline-block;
   }
   .show-book-info {
     display: none;
-  }
-}
-@media (min-width: 500px) {
-  .show-book-info {
-    display: block;
   }
 }
 
