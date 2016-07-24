@@ -1,13 +1,5 @@
 <h1 class="page-title-user-session">Create an Account</h1>
 
-<% if @user.errors.any? %>
-  <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
-
 <%= simple_form_for @user do |f| %>
   <%= f.input :username %>
   <%= f.input :first_name %>
