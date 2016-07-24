@@ -23,6 +23,6 @@ class SessionsController < ApplicationController
   private
 
   def redirect_if_signedin
-    redirect_to root_path, notice: "Already signed in" if user_signed_in?
+    redirect_to root_path, notice: "Already signed in!" if user_signed_in?
   end
 end
