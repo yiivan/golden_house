@@ -12,7 +12,7 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to my_book_path(@book), notice: "Book created!"
     else
-      flash.now[:alert] = "Book not created!"
+      flash.now[:alert] = "Book not created! Missing fields!"
       render :new
     end
   end
@@ -36,7 +36,7 @@ class BooksController < ApplicationController
     if @book.update book_params
       redirect_to book_path(@book), notice: "Book updated!"
     else
-      flash.now[:alert] = "Book not updated!"
+      flash.now[:alert] = "Book not updated! Missing fields!"
       render :edit
     end
   end

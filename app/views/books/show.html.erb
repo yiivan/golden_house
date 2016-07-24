@@ -2,10 +2,8 @@
   Public Memos
   <% if user_signed_in? && (@book.memos.find_by_user_id(current_user.id)) %>
     | <%= link_to "My Memos", my_book_path(@book) %>
-  <% elsif user_signed_in? && !(@book.memos.find_by_user_id(current_user.id)) %>
-    | <%= link_to "Create Memos", my_book_path(@book) %>
   <% else %>
-    | <%= link_to "Create Memos", new_session_path %>
+    | <%= link_to "Create Memos", my_book_path(@book) %>
   <% end %>
 </div>
 
@@ -50,7 +48,7 @@
             </span>
           <% else %>
             <span>
-              <%= link_to new_session_path, class: "like" do %>
+              <%= link_to book_memo_likes_path(@book, mem), method: :post, class: "like" do %>
                 <span class="gray-like">
                   <i class="fa fa-thumbs-up"></i>
                   <span>Like</span>
