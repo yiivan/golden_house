@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
-  
+
   root "home#index"
 
   resources :users, only: [:new, :create]
@@ -24,6 +24,8 @@ Rails.application.routes.draw do
     end
     resources :favorites, only: :index
   end
+
+  match "*path", to: redirect("/"), via: :get
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
