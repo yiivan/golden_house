@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :redirect_if_signed_in
+
   def new
     @user = User.new
   end
@@ -14,5 +16,14 @@ class UsersController < ApplicationController
       flash.now[:alert] = "Account not created! Missing fields!"
       render :new
     end
+  end
+end
+
+private
+
+def redirect_if_signed_in
+  if user_signed_in?
+    redirect_to session[:my_previous_url], notice: "Signed in as #{current_user.first_name}!"
+    session[:my_previous_url] = ""
   end
 end
