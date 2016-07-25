@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   rescue_from ActionController::RedirectBackError, with: :redirect_to_default
   before_action :redirect_if_signed_in, only: [:new, :create]
-  after_filter "save_my_previous_url", only: [:new]
+  after_filter :save_my_previous_url, only: [:new]
 
   def new
   end
